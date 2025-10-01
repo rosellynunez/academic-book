@@ -6,7 +6,7 @@ body {
     line-height: 1.4;
     color: #00030E;
     background-color: #FAFDFF;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   h2 {
@@ -16,10 +16,12 @@ body {
     font-style: normal;
   }
 
+  /*
   .paragraph-md {
     font-weight: 400;
     font-size: 1.2rem;
   }
+*/
 
   .paragraph-sm {
     font-weight: 400;
@@ -200,10 +202,8 @@ body {
 
 .author-div-2 {
     align-items: center;
-    padding: 2rem;
     border-radius: 0.5rem;
     border: 1px solid #E1E1E1;
-    background-color: #ffffff;
 }
 
   .author-section {
@@ -224,6 +224,34 @@ body {
 
   .no-text-margin {
     margin: 0.4rem 0rem !important;
+  }
+
+  #button-copy-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0F0;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0 1rem;
+  }
+
+  .no-margin {
+    margin: 0.5rem 0rem;
+  }
+
+  .monospace-margin-right {
+    margin: 0rem 1rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  .shift {
+    margin: 0rem 1rem;
+  }
+
+  #textToCopy {
+    padding: 16px 16px 22px;
   }
 
   .name-charge {
@@ -278,9 +306,9 @@ body {
   .download-card {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    padding: 2rem;
+    padding: 1.7rem;
     background-color: white;
   }
 

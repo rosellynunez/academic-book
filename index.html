@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
 </head>
 
 <body>
@@ -79,16 +81,26 @@
 			<div class="sections-container-2">
 				<p>To cite this book, please use the following BibTeX entry: </p>
 				<div class="author-div-2">
-					<div class="photo-text">
-						@book{deJonge2025IntroToNego, <br/>
-							title = "Introduction to Automated Negotiation", <br/>
-							author = "de Jonge, Dave", <br/>
-							year = "2025", <br/>
-							publisher = "self-published", <br/>
-							address = "Barcelona, Spain", <br/>
-							url = "https://www.iiia.csic.es/~davedejonge/intro_to_nego" <br/>
-						}
-						
+                    <div id="button-copy-flex">
+                        <div>
+                            <p class="no-margin">BibTeX</p>
+                        </div>
+                        <div>
+                            <button id="copyButton" onclick="copyText()">Copy</button>
+                        </div>
+                    </div>
+                    
+					<div id="textToCopy" class="shift">
+                        <p class="monospace-margin-right">
+                        @book{deJonge2025IntroToNego,<br/>
+                        <span class="shift">title = "Introduction to Automated Negotiation",</span><br/>
+                        <span class="shift">author = "de Jonge, Dave",</span><br/>
+						<span class="shift">year = "2025",</span><br/>
+						<span class="shift">publisher = "self-published",</span><br/>
+						<span class="shift">address = "Barcelona, Spain",</span><br/>
+						<span class="shift">url = "https://www.iiia.csic.es/~davedejonge/intro_to_nego"</span><br/>
+                        }
+                        </p>
 					</div>
 				</div>
 			</div>
@@ -157,7 +169,7 @@
                         <h3>Negotiation Simulator</h3>
                         <p>Download the Negotiation Simulation Framework here.</p>
 						<p>Includes code examples and solutions to some of the exercises.</p>
-                        <a href="https://gitlab.iiia.csic.es/davedejonge/negosimulator/-/archive/main/negosimulator-main.zip" class="download-button">Download Negotiation Simulator</a>
+                        <a href="https://gitlab.iiia.csic.es/davedejonge/negosimulator/-/archive/main/negosimulator-main.zip" class="download-button">Download</a>
 						
             </div>
                 
@@ -226,12 +238,12 @@
             <ul class="book-versions">          
                 <li>
                     <strong>v0.2</strong> (Jul 2025) –
-                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.2.pdf" download>Download PDF</a><br>
+                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.2.pdf" download>Download (PDF)</a><br>
                     <span class="changelog">Added chapter 4 'Opponent Modeling'.</span>
                 </li>
                 <li>
                     <strong>v0.1</strong> (May 2025) –
-                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.1.pdf" download>Download PDF</a><br>
+                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.1.pdf" download>Download (PDF)</a><br>
                     <span class="changelog">Initial release: Chapters 1, 2, and 3.</span>
                 </li>
             </ul>
