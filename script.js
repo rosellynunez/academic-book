@@ -1,22 +1,36 @@
 function copyText() {
-  // Texto a copiar
-  const textToCopy = document.getElementById('textToCopy').innerText
-
-  // Usamos la API de Portapapeles para copiar el texto
-  navigator.clipboard
-    .writeText(textToCopy)
-    .then(function () {
-      // Cambiar el texto del botón y deshabilitar el botón
-      document.getElementById('copyButton').innerText = '✓ Copiado'
-      document.getElementById('copyButton').disabled = true
-
-      // Dejar el botón como en el estado inicial al cabo de 2 segundos
-      setTimeout(function () {
-        document.getElementById('copyButton').innerText = 'Copiar'
-        document.getElementById('copyButton').disabled = false
-      }, 2000)
-    })
-    .catch(function (err) {
-      console.error('Imposible copiar el texto', err)
-    })
+    const textToCopy = document.getElementById('textToCopy');
+    const copyButton = document.getElementById('copyButton');
+    const codeContent = textToCopy.querySelector('code').innerText;
+    
+    // Usar la API moderna del portapapeles
+    navigator.clipboard.writeText(codeContent).then(() => {
+        // Éxito - cambiar icono
+        copyButton.classList.add('copied');
+        
+        // Restaurar después de 2 segundos
+        setTimeout(() => {
+            copyButton.classList.remove('copied');
+        }, 2000);
+        
+    }).catch(err => {
+        // Fallback para navegadores antiguos
+        console.error('Error al copiar: ', err);
+        const range = document.createRange();
+        range.selectNode(textToCopy);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        
+        try {
+            document.execCommand('copy');
+            copyButton.classList.add('copied');
+            setTimeout(() => {
+                copyButton.classList.remove('copied');
+            }, 2000);
+        } catch (err2) {
+            console.error('Fallback también falló: ', err2);
+        }
+        
+        window.getSelection().removeAllRanges();
+    });
 }

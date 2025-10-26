@@ -1,27 +1,45 @@
+/* --- Fonts --- */
+
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.1rem;
+    margin: 0rem;
     font-weight: 400;
-    margin: 0;
-    padding: 0;
     line-height: 1.4;
-    color: #00030E;
-    background-color: #FAFDFF;
-    font-size: 1rem;
+    color: #17171C;
+    background-color: #FAFCFF;
+  }
+
+  .hero-banner h1 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 120%;
+    margin: 0rem;
+    color: #F9FAFB;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
+    line-height: 110%;
+    color: #23222A;
   }
 
-  /*
-  .paragraph-md {
-    font-weight: 400;
-    font-size: 1.2rem;
+  h3 {
+    font-size: 1.4rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 110%;
+    color: #23222A;
   }
-*/
 
   .paragraph-sm {
     font-weight: 400;
@@ -29,31 +47,54 @@ body {
   }
 
   .paragraph-sm-bold {
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
   }
 
-  .margin-top {
+  .paragraph-md-bold {
+    font-weight: 600;
+    font-size: 1.1rem;
+
+  }
+
+  .margin-top-sm {
     margin-top: 3rem;
   }
 
-  .margin-bottom {
-    margin-bottom: 5rem;
-  }
-
   .margin-bottom-sm {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
-  /* --- Navegación Principal (Menú Fijo) --- */
+  .margin-top-md {
+    margin-top: 6rem;
+  }
+
+  .margin-bottom-md {
+    margin-bottom: 6rem;
+  }
+
+  .margin-bottom-lg {
+    margin-bottom: 8rem;
+  }
+
+  .padding-top-sm {
+    padding-top: 2rem;
+  }
+
+  .padding-bottom-md {
+    padding-bottom: 5rem;
+  }
+
+  /* --- Navegación Principal (Menú) --- */
     .main-nav {
-        position: sticky; /* Hace que el menú sea fijo cuando se desplaza */
-        top: 0; /* Lo fija en la parte superior de la ventana */
-        width: 100%; /* Ocupa todo el ancho */
-        background-color: #004467; /* Color de fondo del menú */
-        z-index: 1000; /* Asegura que esté por encima de otros elementos */
-        padding: 10px 0; /* Espaciado interno */
-    }
+      position: static; /* Hace que el menú sea fijo cuando se desplaza */
+      top: 0; /* Lo fija en la parte superior de la ventana */
+      width: 100%; /* Ocupa todo el ancho */
+      backdrop-filter: blur(10px); /* Efecto glass */
+      z-index: 1000;
+      padding: 1rem 0; /* Espaciado interno */
+      background-color: #131921;
+  }
 
     .main-nav ul {
         list-style: none; /* Quita las viñetas de la lista */
@@ -65,18 +106,17 @@ body {
     }
 
     .main-nav ul li {
-        margin: 0 15px; /* Espacio entre los elementos del menú */
+        margin: 0 0.5rem; /* Espacio entre los elementos del menú */
     }
 
     .main-nav ul li a {
         text-decoration: none; /* Quita el subrayado de los enlaces */
-        color: #B1D3E7; /* Color del texto de los enlaces */
+        color: #ecf5fe; /* Color del texto de los enlaces */
         font-weight: 400; /* Grosor de la fuente */
-        font-size: 0.8rem; /* Grosor de la fuente */
-        padding: 8px 12px; /* Espaciado dentro de cada enlace */
+        font-size: 0.9rem; /* Grosor de la fuente */
+        padding: 1rem; /* Espaciado dentro de cada enlace */
         transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para efectos hover */
-        font-family: "Lato", sans-serif;
-        text-transform: uppercase;
+        font-family: "Plus Jakarta Sans", sans-serif;
     }
 
     .main-nav ul li a:hover,
@@ -89,134 +129,208 @@ body {
         scroll-behavior: smooth;
     }
 
-  .hero {
-    background: #004467;
-    color: white;
-    text-align: center;
-    padding: 4rem 0rem 5rem;
+  /* --- CTA --- */
 
-    /* height: 70vh; */
-    /* position: relative; Nuevo: para contener la imagen absoluta */
-    /* overflow: hidden;  Nuevo: oculta el exceso de imagen */
-  }
-
-  /* Hero*/
-  .hero h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 3.6rem;
-    /* line-height: 110%; */
-    margin: 0rem;
-  }
-
-  .hero .subtitle {
-    font-size: 1.3rem;
-  }
-
-  .cta-button {
-    background-color: #B87B50;
-    color: #ffffff;
-    margin: 1rem;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
+  .cta-primary {
+    background-color:#74D7D6;
+    color: #002360;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2px;
     font-weight: 400;
-    transition: background-color 0.3s ease;
     font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+.cta-secondary {
+    border: 2px solid #00B8A9;
+    color: #131921;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
     font-weight: 400;
-    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
   }
 
-  .cta-button:hover {
-    background-color: #e6b800;
-  }
 
-  /* Image */
-.hero-content {
-    position: relative;
-    /* z-index: 2;  Asegura que el contenido esté sobre la imagen */
-    /* height: 50%; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.cta-primary:hover {
+    background: #8be4e3;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(116, 215, 214, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.hero-bottom-image {
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* SECTIONS */
+
+.section-container-55 {
+  width: 55vw;
+  margin: auto;
+}
+
+.section-container-2 {
+  width: 70%;
+  margin: auto;
+}
+
+/* Hero */
+
+.hero-banner {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-banner .cta-primary {
+  margin-top: 1rem;
+}
+
+.banner-background {
     position: absolute;
-    bottom: 50;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 25rem;
-    height: auto;
-    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        #000941 0%,
+        #001447 12%,
+        #001f52 24%,
+        #002960 36%,
+        #00336e 48%,
+        #003d7c 60%,
+        #00478a 72%,
+        #2a6bb0 84%,
+        #5590d6 96%,
+        #70AAF2 100%
+    );
     z-index: 1;
 }
 
-/* Responsive: ajuste para móviles */
-@media (max-width: 768px) {
-    .hero {
-        height: 90vh; /* Más espacio en móviles */
-        padding-bottom: 8rem; /* Espacio extra para la imagen */
-    }
-    .hero-bottom-image {
-        clip-path: inset(50% 0 0 0); /* Muestra menos imagen en móviles */
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+/* Efecto sutil de profundidad mejorado */
+.banner-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Luz en esquina superior derecha */
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(112, 170, 242, 0.15) 0%,
+            transparent 40%
+        ),
+        /* Luz en esquina inferior derecha */
+        radial-gradient(
+            ellipse at 90% 80%,
+            rgba(85, 144, 214, 0.25) 0%,
+            transparent 45%
+        ),
+        /* Luz en esquina inferior izquierda (nueva) */
+        radial-gradient(
+            ellipse at 15% 85%,
+            rgba(42, 107, 176, 0.2) 0%,
+            transparent 40%
+        );
 }
 
-  section {
-    padding: 2rem 1rem 0rem;
-    margin: 0 auto;
-  }
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 2rem;
+    color: white;
+}
 
-  /* h2 {
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
-    font-size: 2.8rem;
-    margin: 0rem;
-    padding-top: 0.5rem;
-    line-height: 130%;
-  } */
+.hero {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #002360 0%, #1E5799 100%);
+    color: white;
+    overflow: hidden;
+}
+
+.hero h2{
+  color: #F9FAFB;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
 
 /* About the book */
-.text-flex {
-    display: flex;
-    gap: 4.5rem;
+
+#about-this-book{
+  padding: 3rem 0rem;
+  color: black;
+  background-color: #CDE3F6;
+  background-color: #FAFCFF;
+
 }
 
-.cincuenta {
-    width: 50%;
+#about-this-book h2{
+  color: black;
+}
+
+/* Grid */
+.section-container-70 {
+  max-width: 70%;
+  margin: auto;
 }
 
 /* Author */
-.author-div {
-    align-items: center;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    background-color: #D8EEFD;
+
+#about-the-author{
+  /* background: #CDE1F6; */
+  background: #FAFBFF; 
 }
 
-.author-div-2 {
+.card-author {
     align-items: center;
+    padding: 4rem;
     border-radius: 0.5rem;
-    border: 1px solid #E1E1E1;
+    background-color: #CDE1F6;
 }
 
-  .author-section {
-    padding: 3rem 1rem;
-    margin: 0 auto;
-    }
-
-  .author-photo {
-    width: 8rem;
-    height: 8rem;
+.author-section {
+  padding: 3rem 1rem;
+  margin: 0 auto;
   }
 
-  .photo-text {
+.card-author h2 {
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.author-photo {
+  width: 8rem;
+  height: 8rem;
+}
+
+  .author-photo-text {
     display: flex;
     gap: 1.8rem;
     align-items: center;
@@ -226,57 +340,197 @@ body {
     margin: 0.4rem 0rem !important;
   }
 
-  #button-copy-flex {
+/* How to cite this book */
+
+.code-div-2 {
+    align-items: center;
+    border-radius: 0.5rem;
+    /* border: 1px solid #CDE1F6;*/
+    background: white;
+    overflow: hidden;
+}
+
+/* Header del código */
+.code-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F0F0F0;
-    padding: 0.5rem;
-    border-radius: 0.5rem 0.5rem 0 0;
-    padding: 0 1rem;
-  }
+    background-color: #ECF5FE;
+    padding: 0rem 1rem;
+    /* border-bottom: 1px solid #CDE1F6; */
+}
 
-  .no-margin {
-    margin: 0.5rem 0rem;
-  }
-
-  .monospace-margin-right {
-    margin: 0rem 1rem;
-    font-family: monospace;
-    font-size: 0.9rem;
-  }
-
-  .shift {
-    margin: 0rem 1rem;
-  }
-
-  #textToCopy {
-    padding: 16px 16px 22px;
-  }
-
-  .name-charge {
+/* Lenguaje con icono */
+.code-language {
+    display: flex;
     align-items: center;
-  }
+    gap: 0.5rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c5282;
+    margin: 0;
+}
 
-  .downloads .download-item {
-    background: #f5f5f5;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-  }
+.language-icon {
+    font-size: 0.8rem;
+}
 
-  .download-button {
-    display: inline-block;
-    margin-top: 0.75rem;
-    background-color: #518FBB;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+/* Botón de copiar mejorado */
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.375rem;
+    padding: 0.3rem 0.75rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.8rem;
+    color: #4a5568;
     cursor: pointer;
-  }
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-btn:hover {
+    background: #f7fafc;
+    border-color: #a0aec0;
+    transform: translateY(-1px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+/* Estados de los iconos */
+.copy-icon, .check-icon, .copy-text {
+    transition: all 0.3s ease;
+}
+
+.check-icon {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Cuando se copia */
+.copy-btn.copied .copy-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.copy-btn.copied .check-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.copy-btn.copied .copy-text {
+    color: #38a169;
+}
+
+/* Contenido del código */
+.code-content {
+    padding: 1rem;
+}
+
+.code-content pre {
+    margin: 0;
+    color: #2d3748;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+.code-content code {
+    background: none;
+    padding: 0;
+}
+
+/* Para scroll horizontal en código largo */
+.code-content pre::-webkit-scrollbar {
+    height: 6px;
+}
+
+.code-content pre::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.code-content pre::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.code-content pre::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* Download and Book versiones */
+
+.previous-versions-border-bottom {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #A6CCF2; 
+}
+
+.previous-versions-border-top {
+  border-top: 1px solid #A6CCF2; 
+}
+
+.list {
+  border: 1px solid #A6CCF2;
+  border-radius: 0.5rem;
+  padding: 0rem 1rem;
+  background-color: ;#ECF5FE
+}
+
+.flex {
+  display: flex;
+  padding: 0rem 0.5rem;
+}
+
+.download {
+  display: block;
+  unicode-bidi: isolate;
+  margin: auto 0;
+  text-decoration: underline;
+}
+
+.version-number {
+  margin-right: auto;
+}
+
+.version-number-2 {
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.version-number-3 {
+  margin-top: 0.2rem;
+}
+
+#book-versions a {
+    color: #17171C; /* Color normal */
+    text-decoration: none; /* Quitar subrayado */
+    transition: color 0.3s ease; /* Transición suave */
+    font-size: 1rem;
+}
+
+#book-versions a:hover {
+    color: green;
+}
+
+#book-versions a:active, /* Color cuando se hace clic */
+#book-versions a:visited { /* Color para enlaces visitados */
+    color: inherit;
+}
+
+
+
+
 
   /* Estilos para el enlace deshabilitado (usando la clase) */
     .disabled-link {
@@ -284,205 +538,126 @@ body {
     cursor: not-allowed; /* Cambia el cursor a "prohibido" */
     pointer-events: none; /* Esto es clave: deshabilita clics y eventos de ratón */
     opacity: 0.7; /* Opcional: para que se vea un poco atenuado */
+  }
+
+/* Downloads */
+.card {
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+  padding: 0.8rem;
+  background-color: #ECF5FE;
+  display: flex; /* ← AÑADE ESTO */
+  flex-direction: column; /* ← Y ESTO */
+  height: 100%; /* ← Para que todas tengan la misma altura */
+  }
+
+.card-content {
+    flex: 1; /* Ocupa todo el espacio disponible */
 }
 
-  /* You will-learn */
-  .bullets li {
-    margin: 1rem 0;
-}
-
-  /*Download */
   .cards-flex {
     display: flex;
-    flex-wrap: wrap;
   }
 
-  .download-cards {
+  .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-  
-  .download-card {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 8px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    padding: 1.7rem;
-    background-color: white;
-  }
-
-  .download-card h3 {
-    margin: 0rem;
-  }
-  
-  .download-card:hover {
-    transform: translateY(-5px);
-  }
-
-  /* Table of contents */
-  .e-chapters-section {
-    padding: 5rem 0;
-  }
-  
-  .chapters-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-  }
-  
-  .chapter-card {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    align-items: stretch; /* ← Importante: estira las cards */
   }
 
-  .chapter-card p {
-    margin: 0rem;
+  .card-justify-between {
+    justify-content: space-between;
   }
 
-  .chapter-card h3 {
-    margin: 0.5rem 0rem;
+  .card .cta-primary {
+    margin-top: auto; /* ← MAGIA: empuja el botón hacia abajo */
+    margin-bottom: 0.8rem;
+    align-self: flex-start; /* ← Opcional: alinea a la izquierda */
   }
 
-
-  
-  .chapter-link {
-    color: #3D92C2;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  /* Book Versions Section */
-  .book-versions-section {
-    padding: 3rem 1rem;
-    margin: 0 auto;
-    }
-
-  .sections-container {
-    width: 55vw; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrado */ 
-  }
-
-  .sections-container-2 {
-    margin: 0 auto; /* Centrado */ 
-  }
-
-  .sections-container-3 {
-    margin: 0 auto; /* Centrado */ 
-  }
-
-  .sections-container-3-left {
-    width: 35%; /* Ancho máximo del contenido */
-  }
-
-  .sections-container-4 {
-    width: 50%; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrado */ 
-  }
-
-  .book-versions-section h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .book-note {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .book-versions {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .book-versions li {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .book-versions li:hover {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  }
-
-  .book-versions a {
-    color: #518FBB;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  .book-versions a:hover {
-    text-decoration: underline;
-  }
-
-  .changelog {
+  .card span {
     display: block;
+  }
+
+  .card h3 {
     margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: #444;
+    margin-bottom: 0.8rem;
   }
 
-  .card-category {
-    display: inline-block;
-    color: #16afa0;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 600;
+  .card p {
+    margin: 0.8rem 0rem !important;
+  }
 
-  }
-  
-  .learn-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: #222;
-  }
-  
-  .learn-card p {
-    color: #666;
-    margin-bottom: 1.5rem;
-  }
-  
   .card-link {
     color: #0066ff;
     text-decoration: none;
     font-weight: 600;
   }
   
-  .primary-button {
-    display: inline-block;
-    background-color: #0066ff;
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s;
-  }
-  
-  .primary-button:hover {
-    background-color: #0052cc;
-  }
-  
   .section-cta {
     text-align: center;
   }
 
-  /* Responsive */
-  @media (max-width: 600px) {
-    .book-versions-container {
-      padding: 0 1rem; /* Espaciado lateral en móviles */
-    }
+  /*Cita this book*/
+  pre {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto; /* <-- evita que se salga del contenedor */
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+  code {
+    font-family: 'Courier New', monospace;
   }
 
+
    /* Footer */
-   footer {
+  footer {
     text-align: center;
-    background-color: #002B4B;
-    padding: 0.4rem;
+    background-color: #131921;
+    padding: 1rem;
     color: #E4F0F6;
   }
+
+  footer span {
+    display: block;
+  }
+
+  /* Responsive */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 60vh;
+    }
+    
+    .hero-banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cta-primary {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .banner-content {
+        padding: 0 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}

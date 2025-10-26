@@ -16,244 +16,188 @@
 	
     <nav class="main-nav">
         <ul>
-            <li><a href="#about-book">About this book</a></li>
+            <li><a href="#about-book">Overview</a></li>
             <li><a href="#downloads">Downloads</a></li>
-            <li><a href="#book-versions">Book Versions</a></li>
+            <li><a href="#downloads">Citation</a></li>
+            <li><a href="#downloads">Contact</a></li>
+            <li><a href="#book-versions">Author</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
+    <!-- Hero Section con efecto de fondo -->
+    <header class="hero-banner">
+        <div class="banner-background"></div>
+        <div class="banner-content">
             <h1>Introduction to <br>Automated Negotiation</h1>
             <p class="subtitle">A practical guide for researchers and students.</p>
-            <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation v0.2.pdf" class="cta-button">Download Book v0.2 (PDF)</a>             
+            <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation v0.2.pdf" class="cta-primary">Download Book v0.2 (PDF)</a>             
         </div>
-        <!--<img src="https://placehold.co/350x450"  class="hero-bottom-image">-->
     </header>
 
-    <section class="about-book sections-container" id="what-inside">
+    <section id="about-this-book">
+            <div class="section-container-70">
 
-        <div class="margin-top margin-bottom">
-
-            <div class="sections-container-3">
-                <h2>About this book</h2>
-            </div>
-
-            <div class="sections-container-2">
-
+                <h2 class="section-title">Overview</h2>
                 <div>
-                    <p class="paragraph-md">This book is targeted towards computer science students who are completely new to the topic of automated negotiation. It does not require any prerequisite knowledge, except for elementary mathematics and basic programming skills. </p>
-					
-					
-					<p class="paragraph-md">It comes together with a software framework in Python that allows the readers to implement their own negotiation algorithms and run simulations and experiments. Furthermore, it contains code examples and solutions to some of the exercises in the book.<p/>
-					
-					<p class="paragraph-md">While the book is not finished yet, you can already download a preview containing the first few chapters, which I think can already be useful for students. I hope to have finished the first full version of this book by the end of 2025. It is meant as an organic document that keeps expanding over time. Therefore, I recommend to check this website regularly to see if there is any updated version available.</p>
-					<p class="paragraph-md">This book is available as an open-access resource, so feel free to share it with whomever you like. </p>
+                    <p class="paragraph-md-bold">This book is targeted towards computer science students who are completely new to the topic of automated negotiation. It does not require any prerequisite knowledge, except for elementary mathematics and basic programming skills.</p>
+                    <p class="paragraph-md">It comes together with a software framework in Python that allows the readers to implement their own negotiation algorithms and run simulations and experiments. Furthermore, it contains code examples and solutions to some of the exercises in the book.</p>
+                    <p class="paragraph-md">This book is available as an open-access resource, so feel free to share it with whomever you like.</p>
                 </div>
+
             </div>
+        </section>
+
+    <section class="section-container-55">
+
+        <section id="book-version-downloads" class="margin-top-md margin-bottom-md">
+
+            <h2>Downloads</h2>
+
+            <p class="margin-bottom-sm">This is a living document:</strong> The book is currently in progress and expands over time. The latest version is always available here. We recommend checking back regularly for updates. The first complete version is expected by the end of 2025.</p>
+
+            <div class="cards-flex grid-cards margin-bottom-sm">
+
+                <div class="card card-justify-between">          
+                    <div class="card card-justify-between">          
+                        <div class="card-content">
+                            <h3>The Book</h3>
+                            <p>
+                                <span class="paragraph-sm-bold">Latest Version: v0.2 (Jul 2025)</span>
+                                <span class="paragraph-sm">What's new: Added chapter 4 'Opponent Modeling'.</span>
+                            </p>
+                        </div>
+                        <!-- Este botón siempre estará abajo -->
+                        <a href="/path/to/v0.2.pdf" class="cta-primary">Download v0.2 (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="card card-justify-between">          
+                    <div class="card card-justify-between">          
+                        <div class="card-content">
+                            <h3>Negotiation Simulator</h3>
+                            <p>
+                                <span class="paragraph-sm-bold">LDownload the Negotiation Simulation Framework here.</span>
+                                <span class="paragraph-sm">Includes code examples and solutions to some of the exercises.</span>
+                            </p>
+                        </div>
+                        <!-- Este botón siempre estará abajo -->
+                        <a href="/path/to/v0.2.pdf" class="cta-primary">Download Framework</a>
+                    </div>
+                </div>
+            
+            </div>
+
+        </section>
+
+		<section id ="how-to-cite-this-book" class="margin-top-md margin-bottom-md">
+
+            <h2>Citation</h2>
+
+            <div>
+    <p class="margin-bottom-sm">To cite this book, please use the following BibTeX entry: </p>
+    <div class="code-div-2">
+        <div class="code-header">
+            <div class="code-language">
+                <p>BibTeX</p>
+            </div>
+            <button id="copyButton" class="copy-btn" onclick="copyText()">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">Copy</span>
+                <span class="check-icon">✅</span>
+            </button>
         </div>
+        
+        <div id="textToCopy" class="code-content">
+            <pre><code>@book{deJonge2025IntroToNego,
+    title = "Introduction to Automated Negotiation",
+    author = "de Jonge, Dave",
+    year = "2025",
+    publisher = "self-published",
+    address = "Barcelona, Spain",
+    url = "https://www.iiia.csic.es/~davedejonge/intro_to_nego"
+}</code></pre>
+        </div>
+    </div>
+</div>
+			
 
-		<!--
-        <div class="text-flex margin-top">
+                
+        </section>
+		
+        <section id ="feedback" class="margin-top-md margin-bottom-md">
 
-            <div class="sections-container-3">
-                <h3>You will learn to</h3>
-            </div>
+            <h2>Contact & Feedback</h2>
 
             <div class="sections-container-2">
-                    <div class="margin-bottom-sm">
-                        <ul class="bullets">
-                            <li>Vivamus quis nunc vitae ante bibendum malesuada ultrices a lectus consectetur urna ut, hendrerit velit.</li>
-                            <li>Nunc ut nisi convallis, consectetur urna ut, hendrerit velit.</li>
-                            <li>Maecenas pellentesque diam in vehicula tempor consectetur urna ut, hendrerit velit.</li>
-                            <li>Quisque tincidunt eros sit amet imperdiet faucibus vel congue molestie.</li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-		-->
-		<div class="margin-top margin-bottom">
-
-            <div class="sections-container-3">
-                <h2>How to cite this book</h2>
-            </div>
-
-			<div class="sections-container-2">
-				<p>To cite this book, please use the following BibTeX entry: </p>
-				<div class="author-div-2">
-                    <div id="button-copy-flex">
-                        <div>
-                            <p class="no-margin">BibTeX</p>
-                        </div>
-                        <div>
-                            <button id="copyButton" onclick="copyText()">Copy</button>
-                        </div>
-                    </div>
-                    
-					<div id="textToCopy" class="shift">
-                        <p class="monospace-margin-right">
-                        @book{deJonge2025IntroToNego,<br/>
-                        <span class="shift">title = "Introduction to Automated Negotiation",</span><br/>
-                        <span class="shift">author = "de Jonge, Dave",</span><br/>
-						<span class="shift">year = "2025",</span><br/>
-						<span class="shift">publisher = "self-published",</span><br/>
-						<span class="shift">address = "Barcelona, Spain",</span><br/>
-						<span class="shift">url = "https://www.iiia.csic.es/~davedejonge/intro_to_nego"</span><br/>
-                        }
-                        </p>
-					</div>
-				</div>
-			</div>
-                
-        </div>
-		
-        <div class="margin-top margin-bottom">
-
-            <div class="sections-container-3">
-                <h2>Feedback</h2>
-            </div>
-
-            <div class="margin-bottom sections-container-2">
 				<p class="paragraph-md">If you have any questions or comments on this book, please send me an e-mail at: <a href="mailto:davedejonge@iiia.csic.es">davedejonge@iiia.csic.es</a></p>
 				<p class="paragraph-md">I would be more than happy to hear your suggestions so that I can improve this work. Especially, if you feel that something is not clearly explained, or that something important is missing, or if you found any errors or typos, please let me know!</p>
-				<!--<p class="paragraph-md">I welcome any suggestions or comments you have on this book, as your feedback is invaluable for its improvement.</p>
-                <p class="paragraph-md">Please don't hesitate to let me know if anything isn't clearly explained, if something important is missing, or if you find any errors or typos. I'd be more than happy to hear from you at <a href="mailto:davedejonge@iiia.csic.es">davedejonge@iiia.csic.es</a></p>
-				-->
 			</div>
-        </div>
 
+        </section>
 
+        <section id="book-versions" class="margin-top-md margin-bottom-md">
+            <h2 class="paragraph-md-bold">Book Versions</h2>
+            <div class="previous-versions">
+                <p>Below you can find all versions of the book. The most recent one is available at the top.</p>
 
+                <div class="list">
+                
+                    <a class="versions-list" href="/path/to/v0.1.pdf">
+                        <div class="previous-versions-border-bottom">
+                            <div class="flex">
+                                <div class="version-number">
+                                    <p class="version-number-2 paragraph-sm-bold">v0.2 (Jul 2025)</p>
+                                    <p class="version-number-3 paragraph-sm">Added chapter 4 'Opponent Modeling'.</p>
+                                </div>
+                                <p class="download paragraph-sm">Download PDF</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="versions-list" href="/path/to/v0.1.pdf">
+                        <div>
+                            <div class="flex">
+                                <div class="version-number">
+                                    <p class="version-number-2 paragraph-sm-bold">v0.1 (Jan 2025)</p>
+                                    <p class="version-number-3 paragraph-sm">Initial release: Chapters 1, 2, and 3.</p>
+                                </div>
+                                <p class="download paragraph-sm">Download PDF</p>
+                            </div>
+                        </div>
+                    </a>
 
-        <div>
+                </div>
 
-            <div class="author">
-                <h2>About the author</h2>
             </div>
+        </section>
 
-			<div class="sections">
-				<div class="author-div">
-					<div class="photo-text">
-						<img src="profile.png" alt="Dave de Jonge" class="author-photo">
-						<div class="name-charge">
-							<p><b><a href="https://www.iiia.csic.es/~davedejonge" target='_blank'>Dr. Dave de Jonge</a></b> is an expert in automated negotiations at the Artificial Intelligence Research Institute (<a href="https://www.iiia.csic.es">IIIA-CSIC</a>) in Barcelona.</p>
+
+    </section>
+
+    <section id="about-the-author" class="padding-top-sm padding-bottom-md">
+
+        <section class="section-container-2">
+
+			<div class="card-author">
+                <h2>About the author</h2>
+				<div class="author-photo-text">
+					<img src="profile.png" alt="Picture of Dave de Jonge" class="author-photo">
+					<div class="author-text">
+						<p class="paragraph-md-bold"><b><a href="https://www.iiia.csic.es/~davedejonge" target='_blank'>Dr. Dave de Jonge</a></b> is an expert in automated negotiations at the Artificial Intelligence Research Institute (<a href="https://www.iiia.csic.es">IIIA-CSIC</a>) in Barcelona.</p>
 							
-							<p>He is especially interested in negotiation scenarios where the utility functions do not have explicit expressions, but instead are defined in terms of hard, time-consuming problems that may involve logic, game theory, and constraint satisfaction. </p>
-							
-						</div>
+						<p>He is especially interested in negotiation scenarios where the utility functions do not have explicit expressions, but instead are defined in terms of hard, time-consuming problems that may involve logic, game theory, and constraint satisfaction. </p>
 					</div>
 				</div>
 			</div>
                 
-        </div>
+        </section>
 
-    </section>
-
-    <section class="downloads-section sections-container">
-
-        <div class="margin-bottom-sm sections-container-3-left">
-            <h2 id="downloads">Downloads</h2>
-            <!--
-			<p>Sed condimentum, sapien id malesuada pretium, arcu dui tincidunt magna, ac sagittis purus felis ac risus.</p>
-			-->
-        </div>
-
-        <div class="cards-flex download-cards margin-bottom">           
-            <div class="download-card">
-                        <h3>The Book</h3>
-                        <p>Download the latest version of the book here.</p>
-                        <a href="Introduction to Automated Negotiation v0.2.pdf" class="download-button">Download Preview v0.2 (PDF)</a>
-            </div>
-                
-            <div class="download-card">
-                        <h3>Negotiation Simulator</h3>
-                        <p>Download the Negotiation Simulation Framework here.</p>
-						<p>Includes code examples and solutions to some of the exercises.</p>
-                        <a href="https://gitlab.iiia.csic.es/davedejonge/negosimulator/-/archive/main/negosimulator-main.zip" class="download-button">Download</a>
-						
-            </div>
-                
-        </div>
-
-    </section>
-
-    <!-- Sección tipo e-chapters -->
-	<!--
-    <section class="sections-container margin-bottom">
-
-        <div class="margin-bottom"> 
-
-            <div class="text-flex">
-
-                <div class="sections-container-3">
-                    <h2 class="section-title" id="what-inside">Table of contents</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. The book has seven chapters:</p>
-                </div>
-
-                <div class="sections-container-2">
-                        <div class="chapters-grid margin-top">
-
-                            <div class="chapter-card">
-                                <span class="card-category">chapter 1</span>
-                                <h3>Desarrollo Web</h3>
-                                <p>Aliquam erat volutpat. Curabitur blandit sed tellus molestie sodales.</p>
-                            </div>
-                            
-
-                            <div class="chapter-card">
-                                <span class="card-category">chapter 2</span>
-                                <h3>Aliquam erat volutpat</h3>
-                                <p>Curabitur id maximus dolor, vel malesuada enim. Aliquam malesuada facilisis purus.</p>
-                            </div>
-                            
-
-                            <div class="chapter-card">
-                                <span class="card-category">chapter 3</span>
-                                <h3>Quisque eget porttitor libero</h3>
-                                <p>Donec posuere turpis nec laoreet eleifend. Integer volutpat, neque id sodales vulputate, arcu urna in rhoncus felis justo eu lectus.</p>
-                            </div>
-
- 
-                            <div class="chapter-card">
-                                <span class="card-category">chapter 4</span>
-                                <h3>Maecenas sit amet ultricies massa</h3>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                            </div>
-
-                        </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-	-->
-
-    <section class="book-versions-section sections-container-4">
-        <div class="margin-bottom">
-
-            <h2 id="book-versions">Book Versions</h2>
-            <p class="book-note">Below you can find all versions of the book. The most recent one is available at the top.</p>
-            <ul class="book-versions">          
-                <li>
-                    <strong>v0.2</strong> (Jul 2025) –
-                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.2.pdf" download>Download (PDF)</a><br>
-                    <span class="changelog">Added chapter 4 'Opponent Modeling'.</span>
-                </li>
-                <li>
-                    <strong>v0.1</strong> (May 2025) –
-                    <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation-v0.1.pdf" download>Download (PDF)</a><br>
-                    <span class="changelog">Initial release: Chapters 1, 2, and 3.</span>
-                </li>
-            </ul>
-
-        </div>
     </section>
 
     <footer>
-        <p>© 2025 Dave de Jonge.</p>
-        <p class="paragraph-sm">Designed and coded by Roselly Nuñez.</p>
+        <p>
+            <span class="paragraph-sm-bold">© 2025 Dave de Jonge.</span>
+            <span class="paragraph-sm">Designed and coded by Roselly Nuñez.</span></p>
     </footer>
+
 </body>
 </html>
