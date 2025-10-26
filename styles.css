@@ -87,7 +87,7 @@ body {
 
   /* --- Navegación Principal (Menú) --- */
     .main-nav {
-      position: static; /* Hace que el menú sea fijo cuando se desplaza */
+      position: sticky;
       top: 0; /* Lo fija en la parte superior de la ventana */
       width: 100%; /* Ocupa todo el ancho */
       backdrop-filter: blur(10px); /* Efecto glass */
