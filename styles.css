@@ -124,14 +124,24 @@ body {
         color: #007bff; /* Color del texto al pasar el ratón o enfocar */
     }
 
-    /* Opcional: Para desplazamiento suave */
-    html {
-        scroll-behavior: smooth;
-    }
+  /*scroll*/
+  
+  html {
+    scroll-behavior: smooth;
+  }
 
-  /* --- CTA --- */
+/* Si tus h2 están dentro de divs con esos IDs */
+  #about-this-book,
+  #downloads,
+  #citation, 
+  #contact,
+  #about-the-author {
+    scroll-margin-top: 5rem;
+}
 
-  .cta-primary {
+/* --- CTA --- */
+
+.cta-primary {
     background-color:#74D7D6;
     color: #002360;
     padding: 0.8rem 1.5rem;
@@ -143,7 +153,7 @@ body {
     cursor: pointer;
     display: inline-block;
     margin-top: 0.5rem;
-  }
+}
 
 .cta-secondary {
     border: 2px solid #00B8A9;
