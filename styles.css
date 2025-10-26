@@ -6,8 +6,8 @@ body {
     margin: 0rem;
     font-weight: 400;
     line-height: 1.4;
-    color: #17171C;
-    background-color: #FAFCFF;
+    color: #002F60;
+    background-color: #Fafafa;
   }
 
   .hero-banner h1 {
@@ -29,7 +29,7 @@ body {
     font-weight: 600;
     font-style: normal;
     line-height: 110%;
-    color: #23222A;
+    color: #002F60;
   }
 
   h3 {
@@ -38,7 +38,7 @@ body {
     font-weight: 600;
     font-style: normal;
     line-height: 110%;
-    color: #23222A;
+    color: #002F60;
   }
 
   .paragraph-sm {
@@ -54,8 +54,14 @@ body {
   .paragraph-md-bold {
     font-weight: 600;
     font-size: 1.1rem;
-
   }
+
+/* Mobile - cambia a columna */
+@media (max-width: 767px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
 
   .margin-top-sm {
     margin-top: 3rem;
@@ -188,8 +194,8 @@ body {
   margin: auto;
 }
 
-.section-container-2 {
-  width: 70%;
+.section-container-70 {
+  width: 70vw;
   margin: auto;
 }
 
@@ -294,20 +300,6 @@ body {
 
 #about-this-book{
   padding: 3rem 0rem;
-  color: black;
-  background-color: #CDE3F6;
-  background-color: #FAFCFF;
-
-}
-
-#about-this-book h2{
-  color: black;
-}
-
-/* Grid */
-.section-container-70 {
-  max-width: 70%;
-  margin: auto;
 }
 
 /* Author */
@@ -340,15 +332,33 @@ body {
   height: 8rem;
 }
 
+.author-photo-text {
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.no-text-margin {
+  margin: 0.4rem 0rem !important;
+}
+
+/* Mobile - cambia a columna */
+@media (max-width: 767px) {
   .author-photo-text {
-    display: flex;
-    gap: 1.8rem;
-    align-items: center;
+    flex-direction: column; /* ← La clave! */
+    gap: 1rem;             /* Menor gap en móvil */
+  }
+  
+  /* Opcional: ajustar tamaño de foto en móvil */
+  .author-photo-text .author-photo {
+    max-width: 12rem;      /* Foto más pequeña en móvil */
   }
 
-  .no-text-margin {
-    margin: 0.4rem 0rem !important;
+  .card-author {
+    padding: 2rem;
+    border-radius: 0.5rem;
   }
+}
 
 /* How to cite this book */
 
@@ -483,18 +493,22 @@ body {
 .previous-versions-border-bottom {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-  border-bottom: 1px solid #A6CCF2; 
+  border-bottom: 1px solid #C3C3C3; 
 }
 
 .previous-versions-border-top {
-  border-top: 1px solid #A6CCF2; 
+  border-top: 1px solid #C3C3C3; 
 }
 
 .list {
-  border: 1px solid #A6CCF2;
+  border: 1px solid #C3C3C3;
   border-radius: 0.5rem;
   padding: 0rem 1rem;
-  background-color: #ECF5FE;
+  background-color: #fafafa;
+}
+
+.list p {
+  color: #3E3E3E;
 }
 
 .flex {
@@ -571,8 +585,8 @@ body {
 
   .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
     align-items: stretch; /* ← Importante: estira las cards */
   }
 
@@ -635,39 +649,39 @@ body {
     display: block;
   }
 
-  /* Responsive */
-@media (max-width: 768px) {
-    .hero-banner {
-        min-height: 60vh;
-    }
-    
-    .hero-banner h1 {
-        font-size: 2.5rem;
-    }
-    
-    .cta-primary {
-        padding: 1rem 2.5rem;
-        font-size: 1rem;
-    }
+ /* ========== MEDIA QUERIES ========== */
+
+ /* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-banner {
+    min-height: 45vh;
+  }
+
+  .banner-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 480px) {
-    .hero-banner h1 {
-        font-size: 2rem;
+/* Mobile */
+
+@media (max-width: 767px) {
+  .hero-banner {
+        min-height: 60vh;
     }
-    
-    .subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-    
-    .banner-content {
-        padding: 0 1rem;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-    }
+
+  .banner-content h1 {
+      font-size: 2.2rem;
+  }
+
+  .section-container-55 {
+    width: 85vw;
+  }
+  
+  .section-container-70 {
+    width: 85vw;
+  }
 }
