@@ -170,55 +170,64 @@ body {
 /* Mobile */
 @media (max-width: 767px) {
 /* Mostrar botón hamburguesa */
+  
   .hamburger {
     display: flex;
+    z-index: 1100; /* encima del overlay */
   }
-    
-  /* Ocultar menú por defecto */
+
+  /* Menú como overlay fullscreen (por defecto oculto usando opacity/visibility) */
   .nav-menu {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
     width: 100%;
-    background-color: #131921;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
-    padding: 1rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(19, 25, 33, 0.92); /* semitransparente */
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+
+    /* ocultar para que no interfiera, pero permitir transición */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10%);
+    pointer-events: none; /* no clickeable cuando oculto */
+    /* animación */
+    transition: opacity 320ms cubic-bezier(.2,.9,.2,1),
+                transform 320ms cubic-bezier(.2,.9,.2,1),
+                visibility 0s linear 320ms; /* delay para visibility = oculto después de la transición */
+    z-index: 1050;
   }
     
-  /* Mostrar menú cuando está activo */
+  /* Cuando está activo: visible y clickeable */
   .nav-menu.active {
-    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s; /* aparece de inmediato */
   }
       
-  /* Estilos para items en móvil */
+  /* Estilos para elementos del menú en pantalla completa */
   .nav-menu li {
     width: 100%;
     text-align: center;
   }
-      
+  
   .nav-menu li a {
-    display: block;
+    display: inline-block;
     padding: 1rem 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.25rem; /* más grande en mobile fullscreen */
+    text-decoration: none;
+    color: #ecf5fe;
   }
 
-  .nav-menu li:last-child a {
-    border-bottom: none;
-  }
-
-/* Animación del botón hamburguesa */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  /* Asegurar que la hamburguesa (cuando se transforma) se vea por encima */
+  .hamburger.active {
+    z-index: 1110;
   }
 }
 
