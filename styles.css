@@ -91,50 +91,142 @@ body {
     padding-bottom: 5rem;
   }
 
-  /* --- Navegación Principal (Menú) --- */
-    .main-nav {
-      position: sticky;
-      top: 0; /* Lo fija en la parte superior de la ventana */
-      width: 100%; /* Ocupa todo el ancho */
-      backdrop-filter: blur(10px); /* Efecto glass */
-      z-index: 1000;
-      padding: 1rem 0; /* Espaciado interno */
-      background-color: #131921;
+/* --- Navegación Principal (Menú) --- */
+.main-nav {
+  position: sticky;
+  top: 0; /* Lo fija en la parte superior de la ventana */
+  width: 100%; /* Ocupa todo el ancho */
+  backdrop-filter: blur(10px); /* Efecto glass */
+  z-index: 1000;
+  padding: 1rem 0; /* Espaciado interno */
+  background-color: #131921;
+}
+
+.main-nav ul {
+  list-style: none; /* Quita las viñetas de la lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Para que los elementos se coloquen en fila */
+  justify-content: center; /* Centra los elementos del menú */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.main-nav ul li {
+  margin: 0 0.5rem; /* Espacio entre los elementos del menú */
+}
+
+/* MENÚ DESKTOP - visible por defecto */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-menu li {
+  margin: 0 0.5rem;
+}
+
+.main-nav ul li a {
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: #ecf5fe; /* Color del texto de los enlaces */
+  font-weight: 400; /* Grosor de la fuente */
+  font-size: 0.9rem; /* Grosor de la fuente */
+  padding: 1rem; /* Espaciado dentro de cada enlace */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para efectos hover */
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus {
+  color: #007bff; /* Color del texto al pasar el ratón o enfocar */
+}
+
+/* --- Menú Hamburguesa (Mobile) --- */
+
+/* Botón hamburguesa - oculto en desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #ecf5fe;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+/* Mostrar botón hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+    
+  /* Ocultar menú por defecto */
+  .nav-menu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #131921;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+    
+  /* Mostrar menú cuando está activo */
+  .nav-menu.active {
+    display: flex !important;
+  }
+      
+  /* Estilos para items en móvil */
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+      
+  .nav-menu li a {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-    .main-nav ul {
-        list-style: none; /* Quita las viñetas de la lista */
-        margin: 0;
-        padding: 0;
-        display: flex; /* Para que los elementos se coloquen en fila */
-        justify-content: center; /* Centra los elementos del menú */
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
-    }
+  .nav-menu li:last-child a {
+    border-bottom: none;
+  }
 
-    .main-nav ul li {
-        margin: 0 0.5rem; /* Espacio entre los elementos del menú */
-    }
+/* Animación del botón hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
 
-    .main-nav ul li a {
-        text-decoration: none; /* Quita el subrayado de los enlaces */
-        color: #ecf5fe; /* Color del texto de los enlaces */
-        font-weight: 400; /* Grosor de la fuente */
-        font-size: 0.9rem; /* Grosor de la fuente */
-        padding: 1rem; /* Espaciado dentro de cada enlace */
-        transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para efectos hover */
-        font-family: "Plus Jakarta Sans", sans-serif;
-    }
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
 
-    .main-nav ul li a:hover,
-    .main-nav ul li a:focus {
-        color: #007bff; /* Color del texto al pasar el ratón o enfocar */
-    }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
 
-  /*scroll*/
+/*scroll*/
   
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Si tus h2 están dentro de divs con esos IDs */
   #about-this-book,
@@ -190,12 +282,12 @@ body {
 /* SECTIONS */
 
 .section-container-55 {
-  width: 55vw;
+  width: 60vw;
   margin: auto;
 }
 
 .section-container-70 {
-  width: 70vw;
+  width: 75vw;
   margin: auto;
 }
 
@@ -508,7 +600,7 @@ body {
 }
 
 .list p {
-  color: #3E3E3E;
+  color: #002F60;
 }
 
 .flex {
@@ -568,11 +660,16 @@ body {
 .card {
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
-  padding: 0.8rem;
+  padding: 1.5rem 1rem;
   background-color: #ECF5FE;
   display: flex; /* ← AÑADE ESTO */
   flex-direction: column; /* ← Y ESTO */
   height: 100%; /* ← Para que todas tengan la misma altura */
+  box-shadow:
+    rgba(0, 0, 0, 0.04) 0px 3px 3px,
+    rgba(0, 0, 0, 0.04) 0px 7px 5px,
+    rgba(0, 0, 0, 0.05) 0px 13px 10px,
+    rgba(0, 0, 0, 0.04) 0px 22px 17px;
   }
 
 .card-content {

@@ -34,3 +34,25 @@ function copyText() {
         window.getSelection().removeAllRanges();
     });
 }
+
+// Menú hamburguesa
+
+// Seleccionamos los elementos del DOM
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+// Evento para abrir/cerrar el menú al hacer clic en la hamburguesa
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
+
+// Cierra el menú automáticamente cuando el usuario hace clic en un enlace del menú
+document.querySelectorAll(".nav-menu a").forEach(link =>
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  })
+);
+
+
