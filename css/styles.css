@@ -7,10 +7,10 @@ body {
     font-weight: 400;
     line-height: 1.4;
     color: #002F60;
-    background-color: #Fafafa;
+    background-color: #DDEDFE;
 }
 
-.hero-banner h1 {
+h1 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 700;
   font-size: 3.5rem;
