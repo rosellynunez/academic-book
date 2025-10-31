@@ -18,13 +18,18 @@
 <body>
     <nav class="main-nav">
         <!-- Botón hamburguesa -->
-        <button class="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <ul class="nav-menu">
+        <!-- NUEVO: Botón X (cerrar) — oculto por defecto -->
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            &times;
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
             <li><a href="#about-this-book">Overview</a></li>
             <li><a href="#downloads">Downloads</a></li>
             <li><a href="#citation">Citation</a></li>
@@ -58,7 +63,7 @@
 
     <section class="section-container-55">
 
-        <section id="downloads" class="margin-top-md margin-bottom-md">
+        <section id="downloads" class="margin-bottom-md">
 
             <h2>Downloads</h2>
 

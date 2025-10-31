@@ -8,53 +8,53 @@ body {
     line-height: 1.4;
     color: #002F60;
     background-color: #Fafafa;
-  }
+}
 
-  .hero-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 700;
-    font-size: 3.5rem;
-    line-height: 120%;
-    margin: 0rem;
-    color: #F9FAFB;
-  }
+.hero-banner h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 120%;
+  margin: 0rem;
+  color: #F9FAFB;
+}
 
-  .subtitle {
-    font-size: 1.4rem;
-  }
+.subtitle {
+  font-size: 1.4rem;
+}
 
-  h2 {
-    font-size: 2.2rem;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 110%;
-    color: #002F60;
-  }
+h2 {
+  font-size: 2.2rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 110%;
+  color: #002F60;
+}
 
-  h3 {
-    font-size: 1.4rem;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 110%;
-    color: #002F60;
-  }
+h3 {
+  font-size: 1.4rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 110%;
+  color: #002F60;
+}
 
-  .paragraph-sm {
-    font-weight: 400;
-    font-size: 0.9rem;
-  }
+.paragraph-sm {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
 
-  .paragraph-sm-bold {
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
+.paragraph-sm-bold {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
 
-  .paragraph-md-bold {
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
+.paragraph-md-bold {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 
 /* Mobile - cambia a columna */
 @media (max-width: 767px) {
@@ -159,12 +159,12 @@ body {
 }
 
 .hamburger span {
-  width: 25px;
-  height: 3px;
+  width: 1.5rem;
+  height: 0.1rem;
   background: #ecf5fe;
-  margin: 3px 0;
+  margin: 0.22rem 0;
   transition: 0.3s;
-  border-radius: 2px;
+  border-radius: 0.8rem;
 }
 
 /* Mobile */
@@ -179,22 +179,22 @@ body {
   /* Menú como overlay fullscreen (por defecto oculto usando opacity/visibility) */
   .nav-menu {
     position: fixed;
-    inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(19, 25, 33, 0.92); /* semitransparente */
+    background-color: rgba(19, 25, 33, 0.98); /* semitransparente */
     padding: 2rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 
     /* ocultar para que no interfiera, pero permitir transición */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10%);
     pointer-events: none; /* no clickeable cuando oculto */
+
     /* animación */
     transition: opacity 320ms cubic-bezier(.2,.9,.2,1),
                 transform 320ms cubic-bezier(.2,.9,.2,1),
@@ -208,27 +208,73 @@ body {
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
-    transition-delay: 0s; /* aparece de inmediato */
+    transition-delay: 0.2s; /* aparece de inmediato */
   }
       
   /* Estilos para elementos del menú en pantalla completa */
   .nav-menu li {
-    width: 100%;
     text-align: center;
+    margin: 0 1rem !important; /* ← Añade márgenes lateral */
+    width: 90%;
   }
   
   .nav-menu li a {
     display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.25rem; /* más grande en mobile fullscreen */
+    font-size: 2rem !important; /* más grande en mobile fullscreen */
     text-decoration: none;
     color: #ecf5fe;
+    padding: 1.8rem !important;
+    width: 90%;
+  }
+
+  /* Borde para el menu mobile */
+  .nav-menu li {
+    border-bottom: 1px solid rgba(236, 245, 254, 0.2);
+    margin: 0!important;
+  }
+
+/* Excepto el último item - sin línea */
+  .nav-menu li:last-child {
+    border-bottom: none;
   }
 
   /* Asegurar que la hamburguesa (cuando se transforma) se vea por encima */
   .hamburger.active {
     z-index: 1110;
   }
+
+  .close-menu {
+    position: fixed; /* encima del overlay */
+    top: 1.3rem;
+    right: 1.3rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: #ecf5fe;
+    font-size: 3rem;
+    line-height: 1;
+    border-radius: 8px;
+    display: none;         /* oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1120;         /* encima de la hamburguesa y del overlay */
+    backdrop-filter: blur(2px);
+    transition: transform 200ms ease, opacity 200ms ease;
+    opacity: 0;
+    display: flex;
+  }
+
+  /* estilo cuando está visible (lo activaremos con JS o con .nav-menu.active) */
+  .nav-menu.active + .close-menu, /* si close-menu está después de nav-menu (no es el caso) */
+  .close-menu.visible,
+  .nav-menu.active ~ .close-menu {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
 /*scroll*/
@@ -274,7 +320,6 @@ html {
     display: inline-block;
   }
 
-
 .cta-primary:hover {
     background: #8be4e3;
     transform: translateY(-2px);
@@ -286,7 +331,6 @@ html {
 .btn-primary:active {
     transform: translateY(0);
 }
-
 
 /* SECTIONS */
 
