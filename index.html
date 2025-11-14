@@ -26,8 +26,14 @@
 
         <!-- NUEVO: Botón X (cerrar) — oculto por defecto -->
         <button class="close-menu" id="closeMenu" aria-label="Close menu">
-            &times;
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round"/>
+            </svg>
         </button>
+
 
         <ul class="nav-menu" id="navMenu">
             <li><a href="#about-this-book">Overview</a></li>
@@ -44,29 +50,26 @@
         <div class="banner-content">
             <h1>Introduction to <br>Automated Negotiation</h1>
             <p class="subtitle">A practical guide for researchers and students.</p>
-            <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation v0.2.pdf" class="btn-primary">Download Book v0.2 (PDF)</a>             
+            <a href="https://www.iiia.csic.es/~davedejonge/intro_to_nego/Introduction to Automated Negotiation v0.2.pdf" class="btn btn--primary">Download Book v0.2 (PDF)</a>             
         </div>
     </header>
 
-    <section id="overview" class="section-container-md">
-            <div>
+    <section id="overview" class="section section--neutral">
+        <div class="container--md">
 
-                <h2 class="section-title">Overview</h2>
-                <p class="paragraph-base-bold">This book is targeted towards computer science students who are completely new to the topic of automated negotiation. It does not require any prerequisite knowledge, except for elementary mathematics and basic programming skills.</p>
-                <p class="paragraph-md">It comes together with a software framework in Python that allows the readers to implement their own negotiation algorithms and run simulations and experiments. Furthermore, it contains code examples and solutions to some of the exercises in the book.</p>
-                <p class="paragraph-md">This book is available as an open-access resource, so feel free to share it with whomever you like.</p>
+            <h2 class="section-title">Overview</h2>
+            <p class="paragraph-base-bold">This book is targeted towards computer science students who are completely new to the topic of automated negotiation. It does not require any prerequisite knowledge, except for elementary mathematics and basic programming skills.</p>
+            <p class="paragraph-md">It comes together with a software framework in Python that allows the readers to implement their own negotiation algorithms and run simulations and experiments. Furthermore, it contains code examples and solutions to some of the exercises in the book.</p>
+            <p class="paragraph-md">This book is available as an open-access resource, so feel free to share it with whomever you like.</p>
 
-            </div>
+        </div>
     </section>
 
-    <section class="section-container-md">
-
-        <section id="downloads">
+    <section id="downloads" class="section section--primary">
+        <div class="container--md">
 
             <h2>Downloads</h2>
-
             <p class="pb-3">This is a living document: The book is currently in progress and expands over time. The latest version is always available here. We recommend checking back regularly for updates. The first complete version is expected by the end of 2025.</p>
-
             <div class="cards-flex grid-cards">
 
                 <div>          
@@ -74,12 +77,12 @@
                         <div class="card-content">
                             <h3>The Book</h3>
                             <p>
-                                <span class="paragraph-sm-bold">Latest Version: v0.2 (Jul 2025)</span>
+                                <span class="paragraph-sm-bold">Latest Version: v0.2 (Jul 2025).</span>
                                 <span class="paragraph-sm">What's new: Added chapter 4 'Opponent Modeling'.</span>
                             </p>
                         </div>
                         <!-- Este botón siempre estará abajo -->
-                        <a href="/path/to/v0.2.pdf" class="btn-primary">Download v0.2 (PDF)</a>
+                        <a href="/path/to/v0.2.pdf" class="btn btn--primary  btn--sm">Download v0.2 (PDF)</a>
                     </div>
                 </div>
 
@@ -88,38 +91,50 @@
                         <div class="card-content">
                             <h3>Negotiation Simulator</h3>
                             <p>
-                                <span class="paragraph-sm-bold">LDownload the Negotiation Simulation Framework here.</span>
+                                <span class="paragraph-sm-bold">Download the Negotiation Simulation Framework here.</span>
                                 <span class="paragraph-sm">Includes code examples and solutions to some of the exercises.</span>
                             </p>
                         </div>
                         <!-- Este botón siempre estará abajo -->
-                        <a href="/path/to/v0.2.pdf" class="btn-primary">Download Framework</a>
+                        <a href="/path/to/v0.2.pdf" class="btn btn--primary  btn--sm">Download Framework</a>
                     </div>
                 </div>
             
             </div>
 
-        </section>
+        </div>
+    </section>
 
-		<section id ="citation">
-
+	<section id ="citation" class="section section--primary">
+        <div class="container--md">
             <h2>Citation</h2>
-
             <div>
                 <p class="pb-2">To this book, please use the following BibTeX entry:</p>
 
                 <div class="card-code">
                     <div class="code-header">
-                        <div class="code-language">
+                        <div class="code">
                             <p>BibTeX</p>
                         </div>
-                            <button id="copyButton" class="copy-btn" onclick="copyText()">
+                            <button class="copy-btn" data-copy>
+                                <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/>
+                                    <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/>
+                                </svg>
+
+                                <!-- Success icon -->
+                            <svg class="copy-icon-success" viewBox="0 0 16 16">
+                                <path d="M3 8l3 3 7-7"></path>
+                            </svg>
+
                                 <span class="copy-text">Copy</span>
+                                <span class="copied-feedback">Copied!</span>
                             </button>
-                        </div>
+
+                    </div> 
         
-        <div id="textToCopy" class="code-content">
-            <pre><code>@book{deJonge2025IntroToNego,
+<div id="textToCopy" class="code-content">
+<pre><code>@book{deJonge2025IntroToNego,
     title = "Introduction to Automated Negotiation",
     author = "de Jonge, Dave",
     year = "2025",
@@ -127,26 +142,24 @@
     address = "Barcelona, Spain",
     url = "https://www.iiia.csic.es/~davedejonge/intro_to_nego"
 }</code></pre>
+            </div>
+            </div>
         </div>
-    </div>
-</div>
-
-        </section>
+    </section>
 		
-        <section id ="contact">
-
+    <section id ="contact" class="section section--primary">
+        <div class="container--md">
             <h2>Contact & Feedback</h2>
-
-            <div class="sections-container-2">
-				<p class="paragraph-md">If you have any questions or comments on this book, please send me an e-mail at: <a href="mailto:davedejonge@iiia.csic.es">davedejonge@iiia.csic.es</a></p>
+            <div>
+				<p class="paragraph-md">If you have any questions or comments on this book, please send me an e-mail at: <span><a href="mailto:davedejonge@iiia.csic.es">davedejonge@iiia.csic.es</a></span></p>
 				<p class="paragraph-md">I would be more than happy to hear your suggestions so that I can improve this work. Especially, if you feel that something is not clearly explained, or that something important is missing, or if you found any errors or typos, please let me know!</p>
 			</div>
+        </div>
+    </section>
 
-        </section>
-
-        <section id="book-versions">
-
-            <h2 class="paragraph-base-bold">Book Versions</h2>
+    <section id="book-versions" class="section section--primary">
+        <div class="container--md">
+            <h2 class="subtitle">Book Versions</h2>
             <p class="pb-2">Below you can find all versions of the book. The most recent one is available at the top.</p>
 
             <div class="versions-table-container">
@@ -163,28 +176,28 @@
                                 <!-- Versión 1 -->
                                 <tr>
                                     <td data-label="Version" class="version-tag">
-                                        <span class="version-badge">v0.2</span>
+                                        <span class="badge">v0.2</span>
                                     </td>
                                     <td data-label="Release Date" class="version-date">Jul 2025</td>
                                     <td data-label="What's New" class="version-description">
                                         Added chapter 4 'Opponent Modeling'
                                     </td>
                                     <td data-label="Download" class="download-cell">
-                                        <a href="/path/to/v0.2.pdf" class="btn-secondary">Download PDF</a>
+                                        <a href="/path/to/v0.2.pdf" class="btn btn--secondary btn--sm">Download PDF</a>
                                     </td>
                                 </tr>
                                 
                                 <!-- Versión 2 -->
                                 <tr>
                                     <td data-label="Version" class="version-tag">
-                                        <span class="version-badge">v0.1</span>
+                                        <span class="badge">v0.1</span>
                                     </td>
                                     <td data-label="Release Date" class="version-date">Jan 2025</td>
                                     <td data-label="What's New" class="version-description">
                                         Initial release: Chapters 1, 2, and 3
                                     </td>
                                     <td data-label="Download" class="download-cell">
-                                        <a href="/path/to/v0.1.pdf" class="btn-secondary">
+                                        <a href="/path/to/v0.1.pdf" class="btn btn--secondary btn--sm">
                                             <span class="download-text">Download PDF</span>
                                         </a>
                                     </td>
@@ -193,7 +206,7 @@
                                 <!-- PARA AGREGAR MÁS VERSIONES:
                                 <tr>
                                     <td data-label="Version" class="version-tag">
-                                        <span class="version-badge">v0.3</span>
+                                        <span class="badge">v0.3</span>
                                     </td>
                                     <td data-label="Release Date" class="version-date">Oct 2025</td>
                                     <td data-label="What's New" class="version-description">
@@ -210,26 +223,21 @@
                             </tbody>
                         </table>
             </div>
-
-        </section>
-
-
+        </div>
     </section>
 
-    <section id="about-the-author">
-
-            <section class="section-container-md">
-                <div class="author-photo-text">
-                    <div>
-                        <h2>About the author</h2>
-                        <p class="paragraph-base-bold"><b><a href="https://www.iiia.csic.es/~davedejonge" target='_blank'>Dr. Dave de Jonge</a></b> is an expert in automated negotiations at the Artificial Intelligence Research Institute (<a href="https://www.iiia.csic.es">IIIA-CSIC</a>) in Barcelona.</p>
-                        <p>He is especially interested in negotiation scenarios where the utility functions do not have explicit expressions, but instead are defined in terms of hard, time-consuming problems that may involve logic, game theory, and constraint satisfaction. </p>
+    <section id="about-the-author" class="section section--gradient">
+        <div class="container--md">
+            <div class="author-photo-text">
+                <div>
+                    <h2>About the author</h2>
+                    <p class="paragraph-base-bold"><span><a href="https://www.iiia.csic.es/~davedejonge" target='_blank'>Dr. Dave de Jonge</a></span> is an expert in automated negotiations at the Artificial Intelligence Research Institute <span><a href="https://www.iiia.csic.es">(IIIA-CSIC)</a></span> in Barcelona.</p>
+                    <p>He is especially interested in negotiation scenarios where the utility functions do not have explicit expressions, but instead are defined in terms of hard, time-consuming problems that may involve logic, game theory, and constraint satisfaction. </p>
                     </div>
                     <img src="images/profile.png" alt="Picture of Dave de Jonge" class="author-photo">
                 </div>
-            </section>
-        </section>
-
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -239,6 +247,6 @@
     </footer>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

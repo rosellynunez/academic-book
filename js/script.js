@@ -103,3 +103,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const copyButtons = document.querySelectorAll("[data-copy]");
+
+  copyButtons.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const card = btn.closest(".card-code");
+      const codeContent = card.querySelector(".code-content");
+
+      if (!codeContent) return;
+
+      const text = codeContent.innerText.trim();
+
+      try {
+        await navigator.clipboard.writeText(text);
+
+        // activate success state
+        btn.classList.add("copied");
+
+        // after 2 seconds reset
+        setTimeout(() => {
+          btn.classList.remove("copied");
+        }, 2000);
+
+      } catch (err) {
+        console.error("Copy failed", err);
+      }
+    });
+  });
+});
