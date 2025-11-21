@@ -1,0 +1,194 @@
+/*  ========================================
+    1️⃣ DESIGN TOKENS
+    ======================================== */
+
+:root {
+/* =============================================================
+    🎨 COLOR PALETTE — raw color values
+    These are the base brand colors. Surfaces, text, borders,
+    and interactive elements are derived from these tokens.
+    ============================================================ */
+
+/* --- Primary --- */
+--color-primary-50: #E2EFFE; 
+--color-primary-100: #C4DDF8; 
+--color-primary-200: #93BEEC;
+--color-primary-300: #6497CE; 
+--color-primary-500: #1257A1; 
+--color-primary-600: #003C7A; 
+--color-primary-700: #002752;
+--color-primary-900: #000F1F;
+
+/* --- Secondary --- */
+--color-secondary-50: #D7F4F4;
+--color-secondary-200: #85E0E0;
+--color-secondary-300: #2ED1D1;
+--color-secondary-500: #009899;
+--color-secondary-700: #004747;
+
+/* --- Neutral --- */
+--color-neutral-0: #FFFFFF;
+--color-neutral-50: #FAFAFA;
+--color-neutral-75: #F2F2F2;
+--color-neutral-100: #e1e1e1;
+--color-neutral-200: #c3c3c3;
+
+
+/* =============================================================
+    🧱 SURFACES — semantic background layers
+    These are used for cards, sections, layouts and UI elements.
+    They depend on the raw color palette above.
+    ============================================================ */
+
+/* --- App backgrounds --- */
+--surface-app: var(--color-neutral-50);/* Main background */
+
+/* --- Sections --- */
+--surface-section-primary: var(--color-neutral-50);/* Normal light section */
+--surface-section-alt: var(--color-neutral-75);/* Slightly darker section */
+
+/* --- Special effects --- */
+--surface-hero-gradient: linear-gradient(
+    60deg,
+    color-mix(in srgb, var(--color-secondary-200) 50%, transparent) -10%,
+    color-mix(in srgb, var(--color-secondary-200) 10%, var(--color-primary-600) 25%) 15%, /* Mezcla intermedia */
+    color-mix(in srgb, var(--color-primary-600) 40%, transparent) 30%, /* Inicio más tarde */
+    color-mix(in srgb, var(--color-primary-600) 40%, transparent) 70%,
+    color-mix(in srgb, var(--color-primary-300) 40%, transparent) 100%
+    ),
+    var(--color-primary-600);
+
+--surface-gradient: linear-gradient(
+    107.81deg,
+    color-mix(in srgb, var(--color-primary-100) 50%, transparent) 12%,
+    color-mix(in srgb, var(--color-primary-50) 80%, transparent) 48%,
+    color-mix(in srgb, var(--color-secondary-200) 20%, transparent) 80%
+    ), var(--color-neutral-0);
+
+/* --- High-structure areas --- */
+--surface-header: var(--color-primary-900);
+--surface-footer: var(--color-primary-700);
+
+/* --- UI Components --- */
+--surface-card: var(--color-neutral-0);
+
+/* --- Transparency for Hover, Focus & Active --- */
+/* nav / header (dark surfaces) */
+--surface-nav-interaction: color-mix(in srgb, var(--color-primary-600) 30%, transparent);
+--surface-nav-active: color-mix(in srgb, var(--color-primary-600) 50%, transparent);
+
+/* Links in content (light surfaces) */
+--surface-link-interaction: color-mix(in srgb, var(--color-secondary-300) 20%, transparent);
+--surface-link-active: color-mix(in srgb, var(--color-secondary-300) 50%, transparent);
+
+/* --- Data displays --- */
+--surface-table-container: var(--color-neutral-0);
+--surface-table-header: var(--color-neutral-75);
+
+/* --- Interactive elements --- */
+--surface-interactive-primary: var(--color-secondary-200);
+--surface-interactive-secondary: var(--color-neutral-0); 
+
+--surface-interactive-primary-hover: var(--color-secondary-300);
+--surface-interactive-secondary-hover: var(--color-secondary-50);
+
+/* --- Code & technical --- */
+--surface-code: var(--color-neutral-0);
+--surface-code-header: var(--color-neutral-75);
+
+/* --- Subtle elements --- */
+--surface-subtle: var(--color-primary-50); /* Badges informativos, tags */
+
+
+/* ==============================================================
+    🖋 TEXT COLORS — semantic text tokens
+    Use these instead of raw colors so typography stays consistent.
+    ============================================================= */
+--text-color-primary: var(--color-primary-600);
+--text-color-button: var(--color-primary-700); /* AAA contrast for buttons */
+
+--text-color-on-dark: var(--color-neutral-100);
+--text-color-on-dark-hover: var(--color-neutral-50);
+
+--text-color-interactive: var(--color-secondary-500);
+--text-color-interactive-hover: var(--color-secondary-700);
+
+--text-color-disabled: var(--color-neutral-200);
+
+
+/* ==============================================================
+    🔳 BORDERS — semantic borders for different contexts
+    ============================================================= */
+--border-color-subtle: var(--color-neutral-100); 
+--border-color-highlight: var(--color-primary-200); 
+--border-color-interactive: var(--color-secondary-300);
+
+--border-width-separator: 1px; /* tablas, líneas, UI dividers */
+--border-width-interactive: 2px; /* botones, links, focus rings */
+
+
+/* ==============================================================
+    💬 STATE COLORS — success, error, warning
+    ============================================================= */
+--color-success: #28a745;
+--color-error: #dc3545;
+--color-warning: #ffc107;
+
+
+/* ==============================================================
+    ✍ TYPOGRAPHY — sizes, weights, line-heights
+    ============================================================= */
+
+--font-base: "Plus Jakarta Sans", sans-serif;
+
+--fs-heading-1: 3.5rem; /* hero h1 */
+--fs-heading-2: 2.75rem; /* h2 section */
+--fs-heading-3: 2rem; /* h3 subsection */
+--fs-subtitle: 1.5rem; /* h3 */
+--fs-body: 1.1rem; /* paragraph */
+--fs-small: 0.9rem;
+
+/* Font Weights */
+--fw-regular: 400;
+--fw-medium: 500;
+--fw-semibold: 600;
+--fw-bold: 700;
+
+/* Line heights */
+--line-height-base: 1.4;
+--line-height-tight: 1.2;
+
+
+/* ==============================================================
+    📏 SPACING SCALE — consistent spacing system
+    ============================================================= */
+
+--space-1: 0.5rem;   /* Iconos, elementos tiny */
+--space-2: 1rem;     /* Botones, padding pequeño */
+--space-3: 1.5rem;   /* Cards pequeñas, grupos */
+--space-4: 2rem;     /* Padding general, márgenes */
+--space-5: 3rem;     /* Entre secciones, espacios medios */
+--space-6: 4rem;     /* Separación de contenido */
+--space-7: 6rem;     /* Hero sections, espacios grandes */
+--space-8: 8rem;     /* Espacios extra grandes, footers */
+
+
+/* =============== 🧩 RADIUS =============== */
+--radius-sm: 0.3rem; /* botones pequeños, inputs */
+--radius-md: 0.6rem; /* cards, imágenes */
+--radius-lg: 1.2rem; /* bloques destacados, secciones especiales */
+
+
+/* =============== ☁️ SHADOWS =============== */
+--shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
+--shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+--shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+
+/* ==============================================================
+    📱 BREAKPOINTS — documented here, used raw in media queries
+    ============================================================= */
+--bp-mobile: 767px;
+--bp-tablet: 992px;
+--bp-desktop: 1200px;
+}

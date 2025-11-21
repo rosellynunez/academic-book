@@ -1,0 +1,96 @@
+/*  ========================================
+    2️⃣ BASE STYLES
+    ======================================== */  
+/* Default styles: html, body, links, images, base typography */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-base);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--line-height-base);
+    color: var(--text-color-primary);
+    background-color: var(--surface-app);
+    margin: 0;
+}
+
+img { max-width: 100%; display: block; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font-family: inherit; }
+
+
+/*  ========================================
+    3️⃣ GLOBAL ELEMENTS
+    ======================================== */
+/* Global typography (h1, h2, h3, p, etc.) Generic elements that are repeated on all pages. */
+
+h1, h2, h3 {
+margin: 0;
+font-weight: var(--fw-bold);
+line-height: var(--line-height-tight);
+}
+h1 { font-size: var(--fs-heading-1); }
+h2 { font-size: var(--fs-heading-2); }
+h3 { font-size: var(--fs-heading-3); }
+
+.subtitle {
+font-size: var(--fs-subtitle);
+margin-block: var(--space-2)!important;
+}
+
+p {
+    margin-bottom: var(--space-2);
+    color: var(--text-color-primary);
+}
+
+.paragraph-base-bold { font-weight: var(--fw-semibold); }
+.paragraph-sm { font-size: var(--fs-small); }
+.paragraph-sm-bold { font-size: var(--fs-small); font-weight: var(--fw-semibold); }
+
+/* Links: a - not buttons or nav */
+a {
+    text-decoration: underline;
+    color: var(--text-color-interactive);
+    font-weight: var(--fw-semibold);
+}
+
+a:not(.btn):not(.main-nav a) {
+    color: var(--text-color-interactive);
+    text-decoration: underline;
+    font-weight: var(--fw-semibold);
+}
+
+a:not(.btn):not(.main-nav a):hover {
+    background-color: var(--surface-link-interaction);
+    color: var(--text-color-interactive-hover);
+}
+
+a:not(.btn):not(.main-nav a):focus-visible { /* Focus (keyboard) */
+    background-color: var(--surface-link-interaction);
+    outline: var(--border-width-interactive) solid var(--border-color-interactive);
+    outline-offset: 2px;
+}
+
+a:not(.btn):not(.main-nav a):active {
+    background-color: var(--surface-link-active);
+}
+
+/* Media queries for tipography */
+@media (max-width: 1024px) {
+    h1 { font-size: var(--fs-heading-2); }
+    h2 { font-size: var(--fs-heading-3); }
+}
+@media (max-width: 767px) {
+    h1 { font-size: var(--fs-heading-3); }
+    h2 { font-size: var(--fs-subtitle); }
+}
