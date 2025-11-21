@@ -22,15 +22,15 @@
 --color-primary-300: #6497CE; 
 --color-primary-500: #1257A1; 
 --color-primary-600: #003C7A; 
---color-primary-700: #002752; /* footer */
---color-primary-900: #000F1F; /* header */
+--color-primary-700: #002752;
+--color-primary-900: #000F1F;
 
 /* --- Secondary --- */
 --color-secondary-50: #D7F4F4;
---color-secondary-200: #85E0E0; /* Borders */
---color-secondary-300: #2ED1D1; /* Base */
---color-secondary-600: #009899; /* Active */
---color-secondary-700: #007A7A; /* Text interactive */
+--color-secondary-200: #85E0E0;
+--color-secondary-300: #2ED1D1;
+--color-secondary-500: #009899;
+--color-secondary-700: #004747;
 
 /* --- Neutral --- */
 --color-neutral-0: #FFFFFF;
@@ -68,8 +68,8 @@
 --surface-gradient: linear-gradient(
     107.81deg,
     color-mix(in srgb, var(--color-primary-100) 50%, transparent) 12%,
-    color-mix(in srgb, var(--color-primary-50) 90%, transparent) 48%,
-    color-mix(in srgb, var(--color-secondary-300) 30%, transparent) 88%
+    color-mix(in srgb, var(--color-primary-50) 80%, transparent) 48%,
+    color-mix(in srgb, var(--color-secondary-200) 20%, transparent) 80%
     ), var(--color-neutral-0);
 
 /* --- High-structure areas --- */
@@ -78,6 +78,17 @@
 
 /* --- UI Components --- */
 --surface-card: var(--color-neutral-0);
+
+
+/* --- Transparency for Hover, Focus & Active --- */
+
+/* NAV / HEADER (dark surfaces) */
+--surface-nav-interaction: color-mix(in srgb, var(--color-primary-600) 30%, transparent);
+--surface-nav-active: color-mix(in srgb, var(--color-primary-600) 50%, transparent);
+
+/* Links in content (light surfaces) */
+--surface-link-interaction: color-mix(in srgb, var(--color-secondary-300) 20%, transparent);
+--surface-link-active: color-mix(in srgb, var(--color-secondary-300) 50%, transparent);
 
 /* --- Data displays --- */
 --surface-table-container: var(--color-neutral-0);
@@ -103,12 +114,12 @@
     Use these instead of raw colors so typography stays consistent.
     ========================================================= */
 --text-color-primary: var(--color-primary-600);
---text-color-secondary: var(--color-neutral-200);
+--text-color-button: var(--color-primary-700); /* AAA contrast for buttons */
 
 --text-color-on-dark: var(--color-neutral-100);
 --text-color-on-dark-hover: var(--color-neutral-50);
 
---text-color-interactive: var(--color-secondary-600);
+--text-color-interactive: var(--color-secondary-500);
 --text-color-interactive-hover: var(--color-secondary-700);
 
 --text-color-disabled: var(--color-neutral-200);
@@ -121,10 +132,8 @@
 --border-color-highlight: var(--color-primary-200); 
 --border-color-interactive: var(--color-secondary-300);
 
---border-width-thin: 1px;
---border-width-regular: 1.5px;
---border-width-bold: 2px;
-
+--border-width-separator: 1px; /* tablas, líneas, UI dividers */
+--border-width-interactive: 2px; /* botones, links, focus rings */
 
 
 /* =========================================================
@@ -257,14 +266,32 @@ p {
   color: var(--text-color-primary); 
 }
 
+/* a - not buttons or nav */
 a {
   text-decoration: underline;
   color: var(--text-color-interactive);
   font-weight: var(--fw-semibold);
 }
 
-a:hover{
+a:not(.btn):not(.main-nav a) {
+  color: var(--text-color-interactive);
+  text-decoration: underline;
+  font-weight: var(--fw-semibold);
+}
+
+a:not(.btn):not(.main-nav a):hover {
+  background-color: var(--surface-link-interaction);
   color: var(--text-color-interactive-hover);
+}
+
+a:not(.btn):not(.main-nav a):focus-visible { /* Focus (keyboard) */
+  background-color: var(--surface-link-interaction);
+  outline: var(--border-width-interactive) solid var(--border-color-interactive);
+  outline-offset: 2px;
+}
+
+a:not(.btn):not(.main-nav a):active {
+  background-color: var(--surface-link-active);
 }
 
 .paragraph-base-bold {
@@ -402,23 +429,33 @@ section:last-of-type {
   margin: 0 var(--space-1);
 }
 
-.main-nav ul li a {
+.main-nav a {
   text-decoration: none;
   color: var(--text-color-on-dark);
   font-weight: var(--fw-medium);
   font-size: var(--fs-body);
-  padding: var(--space-2);
+  padding: var(--space-1)var(--space-2);
   transition: 0.3s ease;
 }
 
-.main-nav ul li a:hover,
-.main-nav ul li a:focus {
+/* Navigation interaction states */
+.main-nav a:hover {
+  background-color: var(--surface-nav-interaction);
   color: var(--text-color-on-dark-hover);
-  font-weight: var(--fw-semibold);
+}
+
+.main-nav a:focus-visible { /* Focus (keyboard) */
+  background-color: var(--surface-nav-interaction);
+  outline: var(--border-width-interactive) solid var(--border-color-highlight);
+  outline-offset: 4px;
+}
+
+.main-nav a:active {
+  background-color: var(--surface-nav-active);
 }
 
 /* Nav DESKTOP - visible por defecto */
-.nav-menu {
+.nav-menu { 
   list-style: none;
   margin: 0;
   padding: 0;
@@ -519,7 +556,7 @@ section:last-of-type {
 
     /* Borde para el menu mobile */
     .nav-menu li {
-      border-bottom: 1px solid var(--border-width-regular);
+      border-bottom: 1px solid var(--border-width-interactive);
       margin: 0!important;
     }
 
@@ -543,7 +580,7 @@ section:last-of-type {
 
       /* ✨ Semi-transparent background with blur */
       background: transparent;
-      border: var(--border-width-regular) solid var(--border-color-interactive);
+      border: var(--border-width-interactive) solid var(--border-color-interactive);
       color: var(--text-color-on-dark);
       border-radius: var(--radius-lg);
 
@@ -629,7 +666,7 @@ footer p {
 }
 
 /* Headings inside sections */
-#about-this-book,
+#overview,
 #downloads,
 #citation,
 #contact,
@@ -653,36 +690,50 @@ footer p {
   font-weight: var(--fw-bold);
 }
 
-/* > Size variations */
+/* Size variations */
 .btn--sm {
   font-size: var(--fs-small);
   padding: var(--space-1) var(--space-2);
 }
 
-/* > Variations Hierarchy */
+/* Variations Hierarchy */
+
 .btn--primary {
   background-color:var(--surface-interactive-primary); 
-  color: var(--text-color-primary);
+  color: var(--text-color-button);
 }
 
 .btn--primary:hover {
   background-color:var(--surface-interactive-primary-hover); 
   transform: translateY(-1px);
   transition: all 0.3s ease;
-  color: var(--text-color-primary);
+  color: var(--text-color-button);
+}
+
+.btn--primary:focus-visible {
+  background-color:var(--surface-interactive-primary); 
+  color: var(--text-color-button);
+  outline: var(--border-width-interactive) solid var(--border-color-interactive);
+  outline-offset: 2px;
 }
 
 .btn--secondary {
   background-color: var(--surface-interactive-secondary);
-  border: var(--border-width-bold) solid var(--border-color-interactive);
-  color: var(--text-color-primary);
+  border: var(--border-width-interactive) solid var(--border-color-interactive);
+  color: var(--text-color-button);
 }
 
 .btn--secondary:hover {
   background: var(--surface-interactive-secondary-hover);
   transform: translateY(-1px);
   transition: all 0.3s ease;
-  color: var(--text-color-primary);
+  color: var(--text-color-primary-strong);
+}
+
+.btn--secondary:focus-visible {
+  background: var(--surface-interactive-secondary-hover);
+  outline: var(--border-width-interactive) solid var(--border-color-interactive);
+  outline-offset: 2px;
 }
 
 /* --- Cards --- */
@@ -731,7 +782,7 @@ footer p {
   border-radius: var(--radius-md);
   background: var(--surface-code);
   overflow: hidden;
-  border: var(--border-width-thin) solid var(--border-color-subtle);
+  border: var(--border-width-separator) solid var(--border-color-subtle);
 }
 
 .code-header {
@@ -761,7 +812,7 @@ footer p {
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
   cursor: pointer;
-  color: var(--text-color-interactive);
+  color: var(--text-color-button);
   border-radius: var(--radius-sm);
   background-color: transparent;
   border: none;
@@ -769,6 +820,13 @@ footer p {
 
 .copy-btn:hover {
   color: var(--text-color-interactive-hover);
+  background-color: var(--surface-link-interaction);
+}
+
+.copy-btn:focus-visible {
+  border: var(--border-width-interactive) solid (var(--border-color-interactive));
+    background-color: var(--surface-link-interaction);
+    outline-offset: 2px;
 }
 
 /* SVG hereda el color del botón */
@@ -779,8 +837,6 @@ footer p {
 .copy-icon path {
   fill: currentColor; /* Usa el color heredado */
 }
-
-
 
 /* --- Success check icon --- */
 .copy-icon-success {
@@ -810,6 +866,18 @@ footer p {
   display: inline;
   color: var(--color-success);
   animation: fadeUp 0.25s ease forwards;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* -------- Animations -------- */
@@ -873,7 +941,7 @@ table {
 /* Table conntainer */
 .versions-table-container {
   background: var(--surface-table-container);
-  border: var(--border-width-thin) solid var(--border-color-subtle);
+  border: var(--border-width-separator) solid var(--border-color-subtle);
   border-radius: var(--radius-md);
   overflow: hidden; /* <-- add to clip rounded corners */
 }
@@ -914,7 +982,7 @@ table {
 /* Filas y celdas */
 .versions-table td {
   padding: var(--space-2) var(--space-3);
-  border-bottom: var(--border-width-thin) solid var(--border-color-subtle);
+  border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
 }
 
 .versions-table tbody tr:last-child td {
@@ -988,7 +1056,7 @@ table {
         display: flex;
         flex-direction: column;
         padding: var(--space-1) var(--space-3);
-        border: var(--border-width-thin) solid var(--border-color-subtle);
+        border: var(--border-width-separator) solid var(--border-color-subtle);
         position: relative;
     }
     
@@ -1102,7 +1170,7 @@ table {
 }
 
 #book-versions .container--md{
-  border-top: var(--border-width-regular) solid var(--border-color-subtle);
+  border-top: var(--border-width-interactive) solid var(--border-color-subtle);
   padding-top: var(--space-6);
 }
 
