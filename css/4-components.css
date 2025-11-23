@@ -257,8 +257,6 @@ pre {
   line-height: var(--line-height-base);
 }
 
-
-
 /* Table: Book versions (desktop & responsive transform to cards) */
 table {
   border-spacing: 0;
@@ -292,6 +290,7 @@ table {
 .versions-table thead th:first-child {
   border-top-left-radius: var(--radius-md);
 }
+
 .versions-table thead th:last-child {
   border-top-right-radius: var(--radius-md);
   /* ensure background doesn't bleed under rounded corners */
@@ -382,7 +381,7 @@ table {
         display: flex;
         flex-direction: column;
         padding: var(--space-1) var(--space-3);
-        border: var(--border-width-separator) solid var(--border-color-subtle);
+        border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
         position: relative;
     }
     
@@ -392,10 +391,10 @@ table {
     
     .versions-table td {
         padding: var(--space-1) 0;
-        border: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border: none;
     }
     
     /* Mostrar labels usando data-label */

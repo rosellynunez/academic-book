@@ -28,10 +28,10 @@
 
 /* --- Neutral --- */
 --color-neutral-0: #FFFFFF;
---color-neutral-50: #FAFAFA;
---color-neutral-75: #F2F2F2;
---color-neutral-100: #e1e1e1;
---color-neutral-200: #c3c3c3;
+--color-neutral-50: #F5F5F5;
+--color-neutral-75: #EBEBEB;
+--color-neutral-100: #DEDEDE;
+--color-neutral-200: #CCCCCC;
 
 
 /* =============================================================
@@ -107,8 +107,8 @@
 --text-color-primary: var(--color-primary-600);
 --text-color-button: var(--color-primary-700); /* AAA contrast for buttons */
 
---text-color-on-dark: var(--color-neutral-100);
---text-color-on-dark-hover: var(--color-neutral-50);
+--text-color-on-dark: var(--color-neutral-50);
+--text-color-on-dark-hover: var(--color-neutral-0);
 
 --text-color-interactive: var(--color-secondary-500);
 --text-color-interactive-hover: var(--color-secondary-700);

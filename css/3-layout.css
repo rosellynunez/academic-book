@@ -40,33 +40,40 @@ section + section {
 }
 
 /* Vertical separation od first and last sections */
-section:first-of-type {
+section:nth-of-type(2) {
     padding-block: var(--space-6);
 }
 
 section:last-of-type {
-    padding-block: var(--space-6);
+    padding-block: var(--space-7);
     margin-block-start: var(--space-6);
+}
+
+/* Remueve el margin específicamente después del hero */
+.hero-banner + section {
+    margin-block-start: 0;
 }
 
 .section--primary { background-color: var(--surface-section-primary); }
 .section--neutral { background-color: var(--surface-section-alt); }
 .section--gradient { background: var(--surface-gradient); }
 
-/* --- Navigation --- */
-.header {
-    background-color: var(--surface-header);
+/* Header */
+.site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: var(--surface-header);
     backdrop-filter: blur(10px);
+    padding: 0 var(--space-1);
 }
 
-.header .container { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    gap: var(--space-3); 
+/* Layout intern */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
 }
 
 /* Main nav */
@@ -89,17 +96,17 @@ section:last-of-type {
     flex-wrap: wrap;
 }
 
-.main-nav ul li {
-    margin: 0 var(--space-1);
-}
-
 .main-nav a {
     text-decoration: none;
     color: var(--text-color-on-dark);
     font-weight: var(--fw-medium);
     font-size: var(--fs-body);
-    padding: var(--space-1)var(--space-2);
-    transition: 0.3s ease;
+    padding: var(--space-1) var(--space-2);
+    transition: 0.3s;
+}
+
+.main-nav ul li {
+    margin: 0 var(--space-1);
 }
 
 /* Navigation interaction states */
@@ -146,11 +153,11 @@ section:last-of-type {
 }
 
 .hamburger span { 
-    display:block; 
-    width:1.5rem; 
-    height:0.12rem; 
-    background: var(--surface-primary-1); 
-    margin:0.2rem 0; 
+    display: block; 
+    width: var(--space-4); 
+    height: 0.13rem; 
+    background: var(--color-neutral-0); 
+    margin: 0.3rem 0; 
     border-radius: var(--radius-sm); 
     transition: .25s; 
 }
@@ -281,11 +288,23 @@ section:last-of-type {
 /* --- Hero --- */
 .hero-banner {
     position: relative;
-    height: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    height: 50vh;
+}
+
+@media (max-width: 991px) {
+.hero-banner {
+    height: 40vh;
+ }
+}
+
+@media (max-width: 767px) {
+.hero-banner {
+    height: 50vh;
+ }
 }
 
 .banner-background {
@@ -349,7 +368,7 @@ footer p {
 
 /* Book versions section */
 #book-versions .container--md {
-  border-top: var(--border-width-interactive) solid var(--border-color-subtle);
+  border-top: var(--border-width-separator) solid var(--border-color-subtle);
   padding-top: var(--space-6);
 }
 
