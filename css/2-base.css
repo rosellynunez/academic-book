@@ -1,6 +1,6 @@
-/*  ========================================
+/* =============================================================
     2️⃣ BASE STYLES
-    ======================================== */  
+    ============================================================ */ 
 /* Default styles: html, body, links, images, base typography */
 
 *,
@@ -29,10 +29,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 button { font-family: inherit; }
 
 
-/*  ========================================
+/* =============================================================
     3️⃣ GLOBAL ELEMENTS
-    ======================================== */
-/* Global typography (h1, h2, h3, p, etc.) Generic elements that are repeated on all pages. */
+    ============================================================ */
+/* Global typography (h1, h2, h3, p, etc.). 
+Generic elements that are repeated on all pages. */
 
 h1, h2, h3 {
 margin: 0;

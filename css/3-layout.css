@@ -28,6 +28,10 @@
   }
 }
 
+.image-container {
+    overflow: hidden; /* Para que el border-radius funcione bien */
+}
+
 /* --- Sections --- */
 /* Default section breathing space */
 section {

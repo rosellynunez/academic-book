@@ -4,7 +4,7 @@
 
 :root {
 /* =============================================================
-    🎨 COLOR PALETTE — raw color values
+    COLOR PALETTE — raw color values
     These are the base brand colors. Surfaces, text, borders,
     and interactive elements are derived from these tokens.
     ============================================================ */
@@ -24,7 +24,7 @@
 --color-secondary-200: #85E0E0;
 --color-secondary-300: #2ED1D1;
 --color-secondary-500: #009899;
---color-secondary-700: #004747;
+--color-secondary-800: #004747;
 
 /* --- Neutral --- */
 --color-neutral-0: #FFFFFF;
@@ -35,7 +35,7 @@
 
 
 /* =============================================================
-    🧱 SURFACES — semantic background layers
+    SURFACES — semantic background layers
     These are used for cards, sections, layouts and UI elements.
     They depend on the raw color palette above.
     ============================================================ */
@@ -101,7 +101,7 @@
 
 
 /* ==============================================================
-    🖋 TEXT COLORS — semantic text tokens
+    TEXT COLORS — semantic text tokens
     Use these instead of raw colors so typography stays consistent.
     ============================================================= */
 --text-color-primary: var(--color-primary-600);
@@ -111,13 +111,13 @@
 --text-color-on-dark-hover: var(--color-neutral-0);
 
 --text-color-interactive: var(--color-secondary-500);
---text-color-interactive-hover: var(--color-secondary-700);
+--text-color-interactive-hover: var(--color-secondary-800);
 
 --text-color-disabled: var(--color-neutral-200);
 
 
 /* ==============================================================
-    🔳 BORDERS — semantic borders for different contexts
+    BORDERS — semantic borders for different contexts
     ============================================================= */
 --border-color-subtle: var(--color-neutral-100); 
 --border-color-highlight: var(--color-primary-200); 
@@ -128,7 +128,7 @@
 
 
 /* ==============================================================
-    💬 STATE COLORS — success, error, warning
+    STATE COLORS — success, error, warning
     ============================================================= */
 --color-success: #28a745;
 --color-error: #dc3545;
@@ -136,7 +136,7 @@
 
 
 /* ==============================================================
-    ✍ TYPOGRAPHY — sizes, weights, line-heights
+    TYPOGRAPHY — sizes, weights, line-heights
     ============================================================= */
 
 --font-base: "Plus Jakarta Sans", sans-serif;
@@ -160,7 +160,7 @@
 
 
 /* ==============================================================
-    📏 SPACING SCALE — consistent spacing system
+    SPACING SCALE — consistent spacing system
     ============================================================= */
 
 --space-1: 0.5rem;   /* Iconos, elementos tiny */
@@ -172,21 +172,19 @@
 --space-7: 6rem;     /* Hero sections, espacios grandes */
 --space-8: 8rem;     /* Espacios extra grandes, footers */
 
-
-/* =============== 🧩 RADIUS =============== */
+/* =============== RADIUS =============== */
 --radius-sm: 0.3rem; /* botones pequeños, inputs */
 --radius-md: 0.6rem; /* cards, imágenes */
 --radius-lg: 1.2rem; /* bloques destacados, secciones especiales */
 
-
-/* =============== ☁️ SHADOWS =============== */
+/* =============== SHADOWS =============== */
 --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
 --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
 --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
 
 
 /* ==============================================================
-    📱 BREAKPOINTS — documented here, used raw in media queries
+    BREAKPOINTS — documented here, used raw in media queries
     ============================================================= */
 --bp-mobile: 767px;
 --bp-tablet: 992px;
