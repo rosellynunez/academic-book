@@ -115,3 +115,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+// ==============================================================
+// SCROLL REVEAL (Intersection Observer)
+// ==============================================================
+
+// Seleccionamos todas las secciones que queremos animar
+const revealSections = document.querySelectorAll('.reveal-section');
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+
+        if (entry.isIntersecting) {
+
+            // Agregamos delay dinámico por índice (cascada)
+            const delayClass = `reveal-delay-${index + 1}`;
+            entry.target.classList.add(delayClass);
+
+            // Agregamos la clase que activa la animación
+            entry.target.classList.add('visible');
+            
+            // Dejamos de observarla (solo se anima una vez)
+            observer.unobserve(entry.target);
+        }
+
+    });
+}, {
+    threshold: 0.1 // Se activa cuando el 10% de la sección es visible
+});
+
+// Iniciamos la observación
+revealSections.forEach(section => revealObserver.observe(section));
+
+
+// ==============================================================
+// AVOIDING FRAGMENT IDENTIFIER (contains hash)
+// ==============================================================
+
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+});
+
+

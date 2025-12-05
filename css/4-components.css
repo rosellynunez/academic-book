@@ -6,168 +6,143 @@
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: var(--space-1) var(--space-3);
+  padding: var(--space-xs) var(--space-lg);
   cursor: pointer;
   text-decoration: none;
   border-radius: var(--radius-sm);
   text-align: center;
-  font-weight: var(--fw-bold);
-}
-
-/* Size variations */
-.btn--sm {
-  font-size: var(--fs-small);
-  padding: var(--space-1) var(--space-2);
+  font-weight: var(--fw-semibold);
+  color: var(--text-color-button);
+  font-size: var(--text-small);
+  align-items: center;
 }
 
 /* Variations Hierarchy */
 
 .btn--primary {
-  background-color:var(--surface-interactive-primary); 
-  color: var(--text-color-button);
+  background-color:var(--surface-button-primary); 
 }
 
 .btn--primary:hover {
-  background-color:var(--surface-interactive-primary-hover); 
+  background-color:var(--surface-button-primary-hover);
+  box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
   transition: all 0.3s ease;
-  color: var(--text-color-button);
+}
+
+.btn--primary:active {
+  background: var(--surface-button-primary-active);
 }
 
 .btn--primary:focus-visible {
-  background-color:var(--surface-interactive-primary); 
-  color: var(--text-color-button);
-  outline: var(--border-width-interactive) solid var(--border-color-interactive);
-  outline-offset: 2px;
+  outline: var(--border-width-interactive) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .btn--secondary {
-  background-color: var(--surface-interactive-secondary);
+  background-color: var(--surface-button-secondary);
   border: var(--border-width-interactive) solid var(--border-color-interactive);
-  color: var(--text-color-button);
 }
 
 .btn--secondary:hover {
-  background: var(--surface-interactive-secondary-hover);
+  background: var(--surface-button-secondary-hover);
   transform: translateY(-1px);
   transition: all 0.3s ease;
-  color: var(--text-color-primary-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--secondary:active {
+  background-color: var(--surface-button-secondary-active);
 }
 
 .btn--secondary:focus-visible {
-  background: var(--surface-interactive-secondary-hover);
-  outline: var(--border-width-interactive) solid var(--border-color-interactive);
-  outline-offset: 2px;
+  outline: var(--border-width-interactive) solid var(--focus-ring-color);
+  --focus-ring-offset: var(--focus-ring-offset);
 }
 
-/* --- Cards --- */
-.card {
-  border-radius: var(--radius-md);
-  background-color: var(--surface-card);
-  box-shadow: var(--shadow-md);
-  transition: transform 0.3s ease;
-  padding-block-start: var(--space-3);
-  padding-block-end: var(--space-4);
-  padding-inline: var(--space-3);
-  display: flex; /* ← AÑADE ESTO */
-  flex-direction: column; /* ← Y ESTO */
-  height: 100%; /* ← Para que todas tengan la misma altura */
-  gap: var(--space-3);
+.btn--hero {
+  font-size: var(--text-body);
 }
 
-.card-content {
-  flex: 1; /* To Ocupar all the available */
-}
-
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-4);
-  align-items: stretch;
-}
-
-.card-justify-between {
-  justify-content: space-between;
-}
-
-.card h3 {
-  margin-top: var(--space-1);
-  margin-bottom: var(--space-2);
-}
-
-.card p {
-  margin: var(--space-2) 0 !important;
-}
-
-/* Code / Citation card */
-.card-code {
-  display: flex;
-  flex-direction:column;
-  border-radius: var(--radius-md);
-  background: var(--surface-code);
-  overflow: hidden;
-  border: var(--border-width-separator) solid var(--border-color-subtle);
-}
-
-.code-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--surface-code-header);
-  padding: 0rem var(--space-2);
-}
-
-.code {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: var(--fs-small);
-  font-weight: var(--fw-bold);
-  margin: 0;
-}
-
-.copy-btn {
+.btn-icon {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1);
-  position: relative;
-  font-size: var(--fs-small);
-  font-weight: var(--fw-semibold);
+  padding: var(--space-xs); 
+  background: transparent;
+  border: none !important;
   cursor: pointer;
+  font-size: var(--text-small);
   color: var(--text-color-button);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
+}
+
+.btn-icon:hover {
+  font-weight: var(--fw-semibold);
+}
+
+.btn-icon:active {
+  background: var(--surface-link-active);
+}
+
+.btn-icon:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.btn-icon svg {
+  width: 1rem;
+  height: 1rem;
+  color: currentColor;
+}
+
+/* ---------- Copy button (built on .btn-icon) ---------- */
+
+.btn-copy {
+  /* hereda display, gap, border-radius, etc. de .btn-icon */
+  padding: var(--space-xs);
+  background: transparent;
   border: none;
+  position: relative;
+  cursor: pointer;
 }
 
-.copy-btn:hover {
-  color: var(--text-color-interactive-hover);
-  background-color: var(--surface-link-interaction);
+/* Texto y feedback dentro del botón */
+.btn-copy .copy-text {
+  margin-left: calc(var(--space-xs) / 2);
+  font-size: var(--text-small);
+  line-height: var(--line-height-base);
 }
 
-.copy-btn:focus-visible {
-  border: var(--border-width-interactive) solid (var(--border-color-interactive));
-    background-color: var(--surface-link-interaction);
-    outline-offset: 2px;
+/* Visual feedback (success) - oculto por defecto */
+.btn-copy .copy-icon-success,
+.btn-copy .copied-feedback {
+  display: none;
+  vertical-align: middle;
+  font-size: var(--text-small);
 }
 
-/* SVG hereda el color del botón */
-.copy-icon {
-  color: inherit; /* Hereda del .copy-btn */
+/* Estado "copied" (añadido por tu JS) */
+.btn-copy.copied .copy-icon {
+  display: none;
+}
+.btn-copy.copied .copy-text {
+  display: none;
+}
+.btn-copy.copied .copy-icon-success,
+.btn-copy.copied .copied-feedback {
+  display: inline-block;
+  color: var(--status-success);
 }
 
 .copy-icon path {
   fill: currentColor; /* Usa el color heredado */
 }
 
-/* --- Success check icon --- */
+/* Success check icon */
 .copy-icon-success {
   width: 16px;
   height: 16px;
   display: none;
-  stroke: var(--color-success);
+  stroke: var(--status-success);
   stroke-width: 2;
   fill: none;
   animation: popIn 0.25s ease forwards;
@@ -188,8 +163,31 @@
 /* Show “Copied!” with animation */
 .copy-btn.copied .copied-feedback {
   display: inline;
-  color: var(--color-success);
+  color: var(--status-success);
   animation: fadeUp 0.25s ease forwards;
+}
+
+
+
+/* -------- Animations -------- */
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Show icon + "Copy" normally --- */
+.copy-icon {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  top: 1px; /* Ajuste fino si es necesario */
 }
 
 .sr-only {
@@ -204,32 +202,83 @@
   border: 0;
 }
 
-/* -------- Animations -------- */
-@keyframes popIn {
-  0% { transform: scale(0); opacity: 0; }
-  80% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); }
+
+
+/* --- Cards --- */
+.card {
+  border-radius: var(--radius-md);
+  background-color: var(--surface-card);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+  padding-block-start: var(--space-md);
+  padding-block-end: var(--space-lg);
+  padding-inline: var(--space-md);
+  display: flex; /* ← AÑADE ESTO */
+  flex-direction: column; /* ← Y ESTO */
+  height: 100%; /* ← Para que todas tengan la misma altura */
+  gap: var(--space-md);
 }
 
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(3px); }
-  100% { opacity: 1; transform: translateY(0); }
+.card-content {
+  flex: 1; /* To Ocupar all the available */
 }
 
-/* --- Show icon + "Copy" normally --- */
-.copy-icon {
-  width: 1rem;
-  height: 1rem;
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.card-justify-between {
+  justify-content: space-between;
+}
+
+.card h3 {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.card p {
+  margin: var(--space-sm) 0 !important;
+}
+
+/* Code / Citation card */
+.card-code {
+  display: flex;
+  flex-direction:column;
+  border-radius: var(--radius-md);
+  background: var(--surface-code);
+  overflow: hidden;
+  border: var(--border-width-separator) solid var(--border-color-subtle);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-code-header);
+  padding: 0rem var(--space-sm);
+}
+
+.code {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: var(--text-small);
+  font-weight: var(--fw-bold);
+  margin: 0;
 }
 
 .code-content {
-  padding: var(--space-2);
+  padding: var(--space-sm);
 }
 
 .code-content pre {
   margin: 0;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
   line-height: var(--line-height-base);
   overflow-x: auto;
 }
@@ -250,7 +299,7 @@
 }
 
 pre {
-  padding: var(--space-1);
+  padding: var(--space-xs);
   border-radius: var(--radius-md);
   overflow-x: auto; /* <-- evita que se salga del contenedor */
   font-size: var(--fs-body);
@@ -299,14 +348,14 @@ table {
 
 .versions-table th {
   font-size: var(--fs-small);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-sm) var(--space-md);
   text-align: left;
   font-weight: var(--fw-semibold);
 }
 
 /* Filas y celdas */
 .versions-table td {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-sm) var(--space-md);
   border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
 }
 
@@ -317,30 +366,31 @@ table {
 /* Badge de versión */
 .badge {
   display: inline-block;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-lg);
   background-color: var(--surface-subtle);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
   color: var(--text-color-on-decorative);
   text-align: center;
 }
 
+/* Tag */
 .version-tag {
   font-weight: var(--fw-bold);
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
 }
 
 /* Date */
 .version-date {
   font-weight: var(--fw-semibold);
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
   white-space: nowrap;
 }
 
 /* Description */
 .version-description {
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
   margin: 0;
 }
 
@@ -355,12 +405,12 @@ table {
 @media (max-width: 1024px) {
     .versions-table th,
     .versions-table td {
-      padding: var(--space-1) var(--space-2);;
+      padding: var(--space-xs) var(--space-sm);;
     }
 
     .versions-table-container {
         border-radius: var(--radius-md);
-        margin: var(--space-2) 0;
+        margin: var(--space-sm) 0;
     }
     
     /* Ocultar encabezados en móvil */
@@ -374,13 +424,13 @@ table {
     .versions-table tr,
     .versions-table td {
         display: block;
-        /* width: 100%;*/
+        text-align: right;
     }
     
     .versions-table tr {
         display: flex;
         flex-direction: column;
-        padding: var(--space-1) var(--space-3);
+        padding: var(--space-xs) var(--space-md);
         border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
         position: relative;
     }
@@ -390,7 +440,7 @@ table {
     }
     
     .versions-table td {
-        padding: var(--space-1) 0;
+        padding: var(--space-xs) 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -401,6 +451,7 @@ table {
     .versions-table td::before {
       content: attr(data-label);
       font-weight: var(--fw-semibold);
+      text-align: left;
     }
     
     /* Excepciones para algunas celdas */
@@ -410,8 +461,8 @@ table {
     
     .download-cell {
       justify-content: center;
-      margin-top: var(--space-2);
-      padding-top: var(--space-2);
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
       border-top: 1px solid var(--surface-neutral-4);
     }
     
@@ -429,20 +480,20 @@ table {
 }
 
 .author-photo-text {
-  gap: var(--space-4);
+  gap: var(--space-lg);
   align-items: center;
   display: flex;
 }
 
 .no-text-margin {
-  margin: var(--space-1) 0rem !important;
+  margin: var(--space-xs) 0rem !important;
 }
 
 /* Mobile: column */
 @media (max-width: 992px) {
   .author-photo-text {
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-sm);
   }
   
   .author-photo-text .author-photo {
