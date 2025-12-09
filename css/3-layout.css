@@ -1,0 +1,446 @@
+/*  ========================================
+    4️⃣ LAYOUT
+    ======================================== */
+/* Containers, grid system, section, header, hero, footer, sections */
+
+/* --- Containers --- */
+.container {
+    width: 100%;
+    max-width: 80%; /* ≈ 1200px, base container */
+    margin-inline: auto;
+}
+
+/* Widht variants */
+.container--md {
+    width: 66%;
+    margin-inline: auto;
+}
+
+@media (max-width: 1024px) {
+.container--md {
+        width: 75%;
+    }
+}
+
+@media (max-width: 767px) {
+.container--md {
+        width: 85%;
+    }
+}
+
+.image-container {
+    overflow: hidden; /* Para que el border-radius funcione bien */
+}
+
+/* --- Sections --- */
+/* Default section breathing space */
+section {
+    padding-block: var(--space-lg);
+}
+
+/* Vertical separation between consecutive sections */
+section + section {
+    margin-block-start: var(--space-lg);
+}
+
+/* Vertical separation od first and last sections */
+section:nth-of-type(2) {
+    padding-block: var(--space-xxl);
+}
+
+section:last-of-type {
+    padding-block: var(--space-xxxl);
+    margin-block-start: var(--space-xxl);
+}
+
+/* Remueve el margin específicamente después del hero */
+.hero-banner + section {
+    margin-block-start: 0;
+}
+
+.section--default { background-color: var(--surface-section); }
+.section--alternative { background-color: var(--surface-section-alternative); }
+.section--gradient { background: var(--surface-gradient); }
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--surface-header);
+    backdrop-filter: blur(10px);
+    padding: 0 var(--space-sm);
+    gap: var(--space-sm);
+}
+
+/* Layout intern */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Main nav */
+.main-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: var(--space-sm) 0;
+    background-color: var(--surface-header);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+.main-nav ul li {
+    margin: 0 var(--space-xs);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color-nav);
+    font-size: var(--text-body);
+    padding: var(--space-xs) var(--space-sm);
+    transition: 0.3s;
+}
+
+/* Navigation interaction states */
+.main-nav a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.main-nav a:active {
+    text-decoration-thickness: 2px;
+    transform: translateY(2px);
+    transition: all 0.3s ease;
+}
+
+.main-nav a:focus-visible { /* Focus (keyboard) */
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+/* Nav desktop - visible por defecto */
+.nav-menu { 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+.nav-menu li {
+    margin: 0 var(--space-xs);
+}
+
+/* Mobile Navigation (hamburger + overlay menu) */
+/* Hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    margin-left: auto;
+}
+
+.hamburger span { 
+    display: block; 
+    width: var(--space-lg); 
+    height: 0.13rem; 
+    background: var(--color-neutral-0); 
+    margin: 0.3rem 0; 
+    border-radius: var(--radius-sm); 
+    transition: .25s; 
+}
+
+.close-menu {
+  display: none; /* Hidden on desktop */
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-nav {
+    flex: 1 1 auto;
+}
+
+/* --- Mobile Navigation - here we see the hamburguer --- */
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex;
+        z-index: 1100; /* encima del overlay */
+    }
+
+/* Menu fullscreen (hidden using opacity/visibility) */
+    .nav-menu {
+        position: fixed;
+        inset: 0; /* top:0; right:0; bottom:0; left:0; */
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--surface-header);
+
+        /* ocultar para que no interfiera, pero permitir transición */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10%);
+        pointer-events: none; /* no clickeable cuando oculto */
+
+        /* animación */
+        transition: opacity 320ms cubic-bezier(.2,.9,.2,1),
+                    transform 320ms cubic-bezier(.2,.9,.2,1),
+                    visibility 0s linear 320ms; /* delay para visibility = oculto después de la transición */
+        z-index: 1050;
+    }
+
+/* When is active: visible y clickeable */
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition-delay: 0.2s;
+    }
+
+    .header-inner {
+        justify-content: space-between;
+        padding: var(--space-xs) 0;
+    }
+        
+    /* Estilos para elementos del menú en pantalla completa */
+    .nav-menu li {
+        text-align: center;
+        margin: 0 var(--space-sm)!important;
+        width: 100%;
+    }
+    
+    .nav-menu li a {
+        display: inline-block;
+        font-size: var(--text-section) !important;
+        font-weight: var(--fw-regular) !important;
+        text-decoration: none;
+        color: var(--text-color-on-dark);
+        padding: var(--space-md)!important;
+        width: 100%;
+    }
+
+    /* Asegurar que la hamburguesa (cuando se transforma) se vea por encima */
+    .hamburger.active {
+        z-index: 1110;
+    }
+
+    .close-menu {
+        position: fixed;
+        top: var(--space-sm);
+        right: var(--space-sm);
+        width: 2.5rem;
+        height: 2.5rem;
+        border: none;
+
+    /* ✨ Semi-transparent background with blur */
+        background: transparent;
+        border: var(--border-width-interactive) solid var(--border-color-interactive);
+        color: var(--text-color-on-dark);
+        border-radius: var(--radius-full);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+        z-index: 1120;
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        display: none;
+        transition: opacity 250ms ease, transform 250ms ease, background 250ms ease;
+    }
+
+    .close-menu svg {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    /* Hover effect */
+    .close-menu:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.05);
+    }
+
+    /* Visible */
+    .close-menu.visible {
+        display: flex;
+        opacity: 1;
+    }
+
+    header,
+    .main-nav {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* --- Desktop Navigation - Estado Explícito --- */
+@media (min-width: 992px) {
+    .hamburger {
+        display: none !important;
+    }
+    
+    .close-menu {
+        display: none !important;
+    }
+    
+    .nav-menu {
+        display: flex !important;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        height: auto !important;
+        width: auto !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        flex-direction: row !important;
+    }
+    
+    .nav-menu li {
+        width: auto !important;
+        text-align: left !important;
+        border-bottom: none !important;
+        margin: 0 0.5rem !important;
+    }
+    
+    .nav-menu li a {
+        font-size: var(--text-body) !important;
+        font-weight: var(--fw-regular) !important;
+        padding: var(--space-xs) var(--space-sm) !important;
+        width: auto !important;
+    }
+}
+
+
+/* --- Hero --- */
+.hero-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 50vh;
+}
+
+@media (max-width: 767px) {
+.hero-banner {
+    min-height: 40vh;
+    }
+}
+
+.banner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--surface-hero-gradient);
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 100%;
+    padding: var(--space-xl) var(--space-lg);
+    color: var(--text-color-on-dark);
+}
+
+.hero-banner .btn--primary {
+    margin-top: var(--space-xs);
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    background-color: var(--surface-footer);
+    padding: var(--space-md);
+}
+
+footer .text-sm-semibold,
+footer .text-sm {
+    color: var(--text-color-on-dark);
+}
+
+footer p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+/* ========================================
+    PAGE SECTIONS — SPECIFIC ADJUSTMENTS
+   ======================================== */
+
+/* Scroll margin for in-page navigation */
+#overview,
+#downloads,
+#citation,
+#contact,
+#about-the-author {
+    scroll-margin-top: var(--space-xxl);
+}
+
+/* Homepage – Hero subtitle */
+.banner-content .subtitle {
+    color: var(--text-color-on-dark);
+}
+
+/* Book versions section */
+#book-versions .container--md {
+    border-top: var(--border-width-separator) solid var(--border-color-subtle);
+    padding-top: var(--space-xxl);
+}
+
+
+/* Efecto de aparición para secciones */    
+.reveal-section {
+    opacity: 0;
+    transform: translateY(20px); /* desplazamiento inicial hacia abajo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay opcional: se controla por JS */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+
+

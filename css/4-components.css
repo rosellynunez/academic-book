@@ -1,0 +1,534 @@
+/*  ========================================
+    5️⃣ COMPONENTS
+    ======================================== */
+/* Buttons, cards, modals, alerts, badges, etc. */
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-lg);
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-weight: var(--fw-semibold);
+  color: var(--text-color-button);
+  font-size: var(--text-small);
+  align-items: center;
+}
+
+/* Variations Hierarchy */
+
+.btn--primary {
+  background-color:var(--surface-button-primary); 
+}
+
+.btn--primary:hover {
+  background-color:var(--surface-button-primary-hover);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.btn--primary:active {
+  background: var(--surface-button-primary-active);
+  box-shadow: var(--shadow-md);
+  transform: translateY(1px);
+  transition: all 0.3s ease;
+}
+
+.btn--primary:focus-visible {
+  outline: var(--border-width-interactive) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.btn--secondary {
+  background-color: var(--surface-button-secondary);
+  border: var(--border-width-interactive) solid var(--border-color-interactive);
+}
+
+.btn--secondary:hover {
+  background: var(--surface-button-secondary-hover);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.btn--secondary:active {
+  background-color: var(--surface-button-secondary-active);
+  box-shadow: var(--shadow-md);
+  transform: translateY(1px);
+  transition: all 0.3s ease;
+}
+
+.btn--secondary:focus-visible {
+  outline: var(--border-width-interactive) solid var(--focus-ring-color);
+  --focus-ring-offset: var(--focus-ring-offset);
+}
+
+.btn--hero {
+  font-size: var(--text-body);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs); 
+  background: transparent;
+  border: none !important;
+  cursor: pointer;
+  font-size: var(--text-small);
+  color: var(--text-color-button);
+}
+
+.btn-icon:hover {
+  color: var(--text-color-link);
+}
+
+.btn-icon:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.btn-icon svg {
+  width: 1rem;
+  height: 1rem;
+  color: currentColor;
+}
+
+/* ---------- Copy button (built on .btn-icon) ---------- */
+
+.btn-copy {
+  /* hereda display, gap, border-radius, etc. de .btn-icon */
+  padding: var(--space-xs);
+  background: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Texto y feedback dentro del botón */
+.btn-copy .copy-text {
+  margin-left: calc(var(--space-xs) / 2);
+  font-size: var(--text-small);
+  line-height: var(--line-height-base);
+}
+
+/* Visual feedback (success) - oculto por defecto */
+.btn-copy .copy-icon-success,
+.btn-copy .copied-feedback {
+  display: none;
+  vertical-align: middle;
+  font-size: var(--text-small);
+}
+
+/* Estado "copied" (añadido por tu JS) */
+.btn-copy.copied .copy-icon {
+  display: none;
+}
+.btn-copy.copied .copy-text {
+  display: none;
+}
+.btn-copy.copied .copy-icon-success,
+.btn-copy.copied .copied-feedback {
+  display: inline-block;
+  color: var(--status-success);
+}
+
+.copy-icon path {
+  fill: currentColor; /* Usa el color heredado */
+}
+
+/* Success check icon */
+.copy-icon-success {
+  width: 16px;
+  height: 16px;
+  display: none;
+  stroke: var(--status-success);
+  stroke-width: 2;
+  fill: none;
+  animation: popIn 0.25s ease forwards;
+}
+
+/* When copied, show check icon */
+.copy-btn.copied .copy-icon-success {
+  display: inline;
+}
+
+/* Hide normal icon + label */
+.copy-btn.copied .copy-icon,
+.copy-btn.copied .copy-text,
+.copied-feedback {
+  display: none;
+}
+
+/* Show “Copied!” with animation */
+.copy-btn.copied .copied-feedback {
+  display: inline;
+  color: var(--status-success);
+  animation: fadeUp 0.25s ease forwards;
+}
+
+/* -------- Animations -------- */
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Show icon + "Copy" normally --- */
+.copy-icon {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  top: 1px; /* Ajuste fino si es necesario */
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Cards --- */
+.card {
+  border-radius: var(--radius-md);
+  background-color: var(--surface-card);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
+  padding-block-start: var(--space-md);
+  padding-block-end: var(--space-lg);
+  padding-inline: var(--space-md);
+  display: flex; /* ← AÑADE ESTO */
+  flex-direction: column; /* ← Y ESTO */
+  height: 100%; /* ← Para que todas tengan la misma altura */
+  gap: var(--space-md);
+}
+
+.card-content {
+  flex: 1; /* To Ocupar all the available */
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.card-justify-between {
+  justify-content: space-between;
+}
+
+.card h3 {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.card p {
+  margin: var(--space-sm) 0 !important;
+}
+
+/* Code / Citation card */
+.card-code {
+  display: flex;
+  flex-direction:column;
+  border-radius: var(--radius-md);
+  background: var(--surface-code);
+  overflow: hidden;
+  border: var(--border-width-separator) solid var(--border-color-subtle);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-code-header);
+  padding: 0rem var(--space-sm);
+}
+
+.code {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: var(--text-small);
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+
+.code-content {
+  padding: var(--space-sm);
+}
+
+.code-content pre {
+  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: var(--text-small);
+  line-height: var(--line-height-base);
+  overflow-x: auto;
+}
+
+/* Scroll horizontal for code card */
+.code-content pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.code-content pre::-webkit-scrollbar-track {
+  background: var(--surface-neutral-4);
+  border-radius: var(--radius-sm);
+}
+
+.code-content pre::-webkit-scrollbar-thumb {
+  background: var(--surface-neutral-5);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  overflow-x: auto; /* <-- evita que se salga del contenedor */
+  font-size: var(--fs-body);
+  line-height: var(--line-height-base);
+}
+
+/* Table: Book versions (desktop & responsive transform to cards) */
+table {
+  border-spacing: 0;
+}
+
+/* Logo */
+.site-logo {
+    width: 44px;
+    height: auto;
+    display: block;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--space-xs) 0 var(--space-md);
+}
+
+@media (max-width: 992px) {
+    .logo-container {
+        margin: 0;
+    }
+
+    .site-logo {
+    width: 64px;
+    height: auto;
+    display: block;
+  }
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.logo-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+/* Table conntainer */
+.versions-table-container {
+  background: var(--surface-table-container);
+  border: var(--border-width-separator) solid var(--border-color-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden; /* <-- add to clip rounded corners */
+}
+
+/* Table - Desktop */
+.versions-table {
+  width: 100%;
+  border-collapse: separate;
+  overflow: hidden; /* ensure header/background is clipped to radius */
+}
+
+.versions-table .btn--secondary {
+  width: 100%;
+}
+
+.versions-table thead {
+  background: var(--surface-table-header);
+  border-radius: var(--radius-md);
+}
+
+/* give the table head rounded top corners */
+.versions-table thead th:first-child {
+  border-top-left-radius: var(--radius-md);
+}
+
+.versions-table thead th:last-child {
+  border-top-right-radius: var(--radius-md);
+  /* ensure background doesn't bleed under rounded corners */
+  background-clip: padding-box;
+}
+
+.versions-table th {
+  font-size: var(--text-small);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-weight: var(--fw-semibold);
+}
+
+/* Filas y celdas */
+.versions-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
+}
+
+.versions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badge de versión */
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-subtle);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-small);
+  color: var(--text-color-on-decorative);
+  text-align: center;
+}
+
+/* Tag */
+.version-tag {
+  font-weight: var(--fw-bold);
+  font-size: var(--text-small);
+}
+
+/* Date */
+.version-date {
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-small);
+  white-space: nowrap;
+}
+
+/* Description */
+.version-description {
+  font-size: var(--text-small);
+  margin: 0;
+}
+
+/* Botón de descarga */
+.download-cell {
+  text-align: center;
+}
+
+/* Table: Versions (desktop & responsive transform to cards) */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .versions-table th,
+    .versions-table td {
+      padding: var(--space-xs) var(--space-sm);;
+    }
+
+    .versions-table-container {
+        border-radius: var(--radius-md);
+        margin: var(--space-sm) 0;
+    }
+    
+    /* Ocultar encabezados en móvil */
+    .versions-table thead {
+        display: none;
+    }
+    
+    /* Convertir tabla en tarjetas */
+    .versions-table,
+    .versions-table tbody,
+    .versions-table tr,
+    .versions-table td {
+        display: block;
+        text-align: right;
+    }
+    
+    .versions-table tr {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-xs) var(--space-md);
+        border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
+        position: relative;
+    }
+    
+    .versions-table tr:last-child {
+        border-bottom: none;
+    }
+    
+    .versions-table td {
+        padding: var(--space-xs) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+    }
+    
+    /* Mostrar labels usando data-label */
+    .versions-table td::before {
+      content: attr(data-label);
+      font-weight: var(--fw-semibold);
+      text-align: left;
+    }
+    
+    /* Excepciones para algunas celdas */
+    .download-cell::before {
+      display: none;
+    }
+    
+    .download-cell {
+      justify-content: center;
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--surface-neutral-4);
+    }
+    
+    .btn--secondary {
+      width: 100%;
+      justify-content: center;
+    }
+}
+
+/* Author block */
+.author-photo {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+}
+
+.author-photo-text {
+  gap: var(--space-lg);
+  align-items: center;
+  display: flex;
+}
+
+.no-text-margin {
+  margin: var(--space-xs) 0rem !important;
+}
+
+/* Mobile: column */
+@media (max-width: 992px) {
+  .author-photo-text {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .author-photo-text .author-photo {
+    max-width: 10rem;
+    height: auto;
+  }
+}

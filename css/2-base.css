@@ -1,0 +1,99 @@
+/* =============================================================
+    2️⃣ BASE STYLES
+    ============================================================ */ 
+/* Default styles: html, body, links, images, base typography */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-base);
+    font-size: var(--text-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--line-height-base);
+    color: var(--text-color-default);
+    background-color: var(--surface-default);
+    margin: 0;
+    background-color: var(--surface-section);
+}
+
+img { max-width: 100%; display: block; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font-family: inherit; }
+
+
+/* =============================================================
+    3️⃣ GLOBAL ELEMENTS
+    ============================================================ */
+/* Global typography (h1, h2, h3, p, etc.). 
+Generic elements that are repeated on all pages. */
+
+h1, h2, h3 {
+margin: 0;
+font-weight: var(--fw-bold);
+line-height: var(--line-height-tight);
+}
+h1 { font-size: var(--text-hero); }
+h2 { font-size: var(--text-headline); }
+h3 { font-size: var(--text-section); }
+
+.subtitle {
+font-size: var(--text-subtitle);
+margin-block: var(--space-sm)!important;
+}
+
+.text-body {
+    margin-bottom: var(--space-sm);
+    color: var(--text-color-default);
+}
+
+.text-body-semibold  { font-weight: var(--fw-semibold); }
+.text-sm { font-size: var(--text-small); }
+.text-sm-semibold { font-size: var(--text-small); font-weight: var(--fw-semibold); }
+
+/* Links: a - not buttons or nav */
+a:not(.btn):not(.main-nav a):not(.logo-link) {
+    color: var(--text-color-link);
+    font-weight: var(--fw-semibold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+a:not(.btn):not(.main-nav a):not(.logo-link):hover {
+    text-decoration-thickness: 2px;
+    background-color: var(--surface-link-hover);
+}
+
+a:not(.btn):not(.main-nav a):not(.logo-link):active {
+    text-decoration-thickness: 2px;
+    background-color: var(--surface-link-active);
+}
+
+a:not(.btn):not(.main-nav a):not(.logo-link):focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+a[aria-disabled="true"],
+a.disabled {
+    color: var(--color-neutral-500);
+    pointer-events: none;
+}
+
+/* Media queries for tipography */
+@media (max-width: 1024px) {
+    h1 { font-size: var(--text-headline); }
+    h2 { font-size: var(--text-section); }
+}
+@media (max-width: 767px) {
+    h1 { font-size: var(--text-section); }
+    h2 { font-size: var(--text-subtitle); }
+}
