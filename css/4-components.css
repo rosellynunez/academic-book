@@ -26,12 +26,14 @@
 .btn--primary:hover {
   background-color:var(--surface-button-primary-hover);
   box-shadow: var(--shadow-sm);
-  transform: translateY(-1px);
   transition: all 0.3s ease;
 }
 
 .btn--primary:active {
   background: var(--surface-button-primary-active);
+  box-shadow: var(--shadow-md);
+  transform: translateY(1px);
+  transition: all 0.3s ease;
 }
 
 .btn--primary:focus-visible {
@@ -46,13 +48,15 @@
 
 .btn--secondary:hover {
   background: var(--surface-button-secondary-hover);
-  transform: translateY(-1px);
-  transition: all 0.3s ease;
   box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .btn--secondary:active {
   background-color: var(--surface-button-secondary-active);
+  box-shadow: var(--shadow-md);
+  transform: translateY(1px);
+  transition: all 0.3s ease;
 }
 
 .btn--secondary:focus-visible {
@@ -76,11 +80,7 @@
 }
 
 .btn-icon:hover {
-  font-weight: var(--fw-semibold);
-}
-
-.btn-icon:active {
-  background: var(--surface-link-active);
+  color: var(--text-color-link);
 }
 
 .btn-icon:focus-visible {
@@ -167,8 +167,6 @@
   animation: fadeUp 0.25s ease forwards;
 }
 
-
-
 /* -------- Animations -------- */
 @keyframes popIn {
   0% { transform: scale(0); opacity: 0; }
@@ -180,7 +178,6 @@
   0% { opacity: 0; transform: translateY(3px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-
 
 /* --- Show icon + "Copy" normally --- */
 .copy-icon {
@@ -202,13 +199,11 @@
   border: 0;
 }
 
-
-
 /* --- Cards --- */
 .card {
   border-radius: var(--radius-md);
   background-color: var(--surface-card);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   transition: transform 0.3s ease;
   padding-block-start: var(--space-md);
   padding-block-end: var(--space-lg);
@@ -311,6 +306,42 @@ table {
   border-spacing: 0;
 }
 
+/* Logo */
+.site-logo {
+    width: 44px;
+    height: auto;
+    display: block;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--space-xs) 0 var(--space-md);
+}
+
+@media (max-width: 992px) {
+    .logo-container {
+        margin: 0;
+    }
+
+    .site-logo {
+    width: 64px;
+    height: auto;
+    display: block;
+  }
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.logo-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
 /* Table conntainer */
 .versions-table-container {
   background: var(--surface-table-container);
@@ -347,7 +378,7 @@ table {
 }
 
 .versions-table th {
-  font-size: var(--fs-small);
+  font-size: var(--text-small);
   padding: var(--space-sm) var(--space-md);
   text-align: left;
   font-weight: var(--fw-semibold);

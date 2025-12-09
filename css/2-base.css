@@ -60,37 +60,32 @@ margin-block: var(--space-sm)!important;
 .text-sm-semibold { font-size: var(--text-small); font-weight: var(--fw-semibold); }
 
 /* Links: a - not buttons or nav */
-a:not(.btn):not(.main-nav a) {
+a:not(.btn):not(.main-nav a):not(.logo-link) {
     color: var(--text-color-link);
     font-weight: var(--fw-semibold);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
 
-a:not(.btn):not(.main-nav a):hover {
+a:not(.btn):not(.main-nav a):not(.logo-link):hover {
     text-decoration-thickness: 2px;
     background-color: var(--surface-link-hover);
 }
 
-a:not(.btn):not(.main-nav a):active {
+a:not(.btn):not(.main-nav a):not(.logo-link):active {
     text-decoration-thickness: 2px;
     background-color: var(--surface-link-active);
 }
 
-a:not(.btn):not(.main-nav a):focus-visible {
+a:not(.btn):not(.main-nav a):not(.logo-link):focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
 }
 
-a:not(.btn):not(.main-nav a):focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);   
-}
-
 a[aria-disabled="true"],
 a.disabled {
-  color: var(--color-neutral-500);
-  pointer-events: none;
+    color: var(--color-neutral-500);
+    pointer-events: none;
 }
 
 /* Media queries for tipography */

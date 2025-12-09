@@ -83,14 +83,14 @@
 /* -------------------------------------------------------------
     1.7 Shadows
    ------------------------------------------------------------- */
---shadow-sm:    0 1px 1px rgba(0, 0, 0, 0.06),      /* Buttons, inputs */
+--shadow-sm:    0 1px 1px rgba(0, 0, 0, 0.06),      /* Buttons */
                 0 2px 3px rgba(0, 0, 0, 0.05);     
 
---shadow-md:    0 6px 12px rgba(0, 0, 0, 0.10),      /* Cards, modals */
-                0 12px 24px rgba(0, 0, 0, 0.08);     
+--shadow-md:    0 2px 3px rgba(0, 0, 0, 0.18),      /* Buttons active */
+                0 4px 8px rgba(0, 0, 0, 0.12);     
 
---shadow-lg:    0 20px 40px rgba(0, 0, 0, 0.12),    /* /* High emphasis */
-                0 32px 65px rgba(0, 0, 0, 0.10);
+--shadow-lg:    0 10px 20px rgba(0, 0, 0, 0.12),    /* Cards, modals */
+                0 22px 45px rgba(0, 0, 0, 0.10);
 
 /* -------------------------------------------------------------
     1.8 Breakpoints
@@ -124,6 +124,7 @@
 --color-secondary-50: #D7F4F4;
 --color-secondary-200: #85E0E0;
 --color-secondary-300: #2ED1D1;     /* Brand Turquoise */
+--color-secondary-400: #20B6B6;
 --color-secondary-500: #009899;
 
 /* -------------------------------------------------------------
@@ -214,21 +215,15 @@
 /* Buttons */
 --surface-button-primary:            var(--color-secondary-200);
 --surface-button-primary-hover:      var(--color-secondary-300);
---surface-button-primary-active:     color-mix(in srgb, var(--color-secondary-300) 50%, var(--color-secondary-500));
-
+--surface-button-primary-active:     var(--surface-button-primary-hover);
 
 --surface-button-secondary:          var(--color-neutral-0);
 --surface-button-secondary-hover:    var(--color-secondary-50);
---surface-button-secondary-active: color-mix(in srgb, var(--color-secondary-50) 50%, var(--color-secondary-500));
-
+--surface-button-secondary-active: var(--color-secondary-50);
 
 /* Links */
 --surface-link-hover:  color-mix(in srgb, var(--color-secondary-300) 15%, transparent);
---surface-link-active: color-mix(in srgb, var(--color-secondary-300) 35%, transparent);
-
-/* Navigation */
---surface-nav-hover:  color-mix(in srgb, var(--color-primary-600) 50%, transparent);
---surface-nav-active: color-mix(in srgb, var(--color-primary-600) 90%, transparent);
+--surface-link-active: color-mix(in srgb, var(--color-secondary-300) 30%, transparent);
 
 /* Disabled state */
 --surface-disabled: var(--color-neutral-200);
@@ -247,7 +242,7 @@
 /* -------------------------------------------------------------
     3.6 Status Colors
    ------------------------------------------------------------- */
---status-success: #28a745;
+--status-success: #008820;
 --status-error: #dc3545;
 --status-warning: #ffc107;
 

@@ -17,28 +17,17 @@
 
     <body>
         <header class="site-header">
-            <div class="header-inner">
-                <!-- <a href="/" class="logo">LOGO</a> -->
-                <nav class="main-nav">
-                    <!-- Button hamburguesa -->
-                    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+            <div class="header-inner container">
 
-                    <!-- Button X (close) — hidden by default -->
-                    <button class="close-menu" id="closeMenu" aria-label="Close menu">
-                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                            <path d="M18 6L6 18M6 6l12 12" 
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round"/>
-                        </svg>
-                    </button>
+                <!-- Logo -->
+                <div class="logo-container">
+                    <a href="#" class="logo-link" aria-label="Volver al inicio de la página">
+                        <img src="images/logo-a_n.svg" alt="Nombre de tu empresa"  class="site-logo"/>
+                    </a>
+                </div>
 
-                    <!-- Menu -->
-                    <ul class="nav-menu" id="navMenu">
+                <nav class="main-nav" id="main-nav">
+                    <ul class="nav-menu">
                         <li><a href="#overview">Overview</a></li>
                         <li><a href="#downloads">Downloads</a></li>
                         <li><a href="#citation">Citation</a></li>
@@ -46,6 +35,24 @@
                         <li><a href="#about-the-author">Author</a></li>
                     </ul>
                 </nav>
+
+                <!-- Button hamburguesa -->
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Button X (close) — hidden by default -->
+                <button class="close-menu" id="closeMenu" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                        <path d="M18 6L6 18M6 6l12 12" 
+                            stroke="currentColor" 
+                            stroke-width="2" 
+                            stroke-linecap="round"/>
+                    </svg>
+                </button>
+
             </div>
         </header>
 
