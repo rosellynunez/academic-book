@@ -26,8 +26,9 @@
                     </a>
                 </div>
 
-                <nav class="main-nav" id="main-nav">
-                    <ul class="nav-menu">
+                <!-- Desktop nav (same nav, but shown inline in desktop) -->
+                <nav class="desktop-nav">
+                    <ul class="nav-menu-desktop">
                         <li><a href="#overview">Overview</a></li>
                         <li><a href="#downloads">Downloads</a></li>
                         <li><a href="#citation">Citation</a></li>
@@ -36,25 +37,37 @@
                     </ul>
                 </nav>
 
-                <!-- Button hamburguesa -->
+                <!-- Hamburger button -->
                 <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <!-- Button X (close) — hidden by default -->
-                <button class="close-menu" id="closeMenu" aria-label="Close menu">
-                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                        <path d="M18 6L6 18M6 6l12 12" 
-                            stroke="currentColor" 
-                            stroke-width="2" 
-                            stroke-linecap="round"/>
-                    </svg>
-                </button>
-
             </div>
         </header>
+
+        <!-- FULLSCREEN MOBILE MENU -->
+        <nav class="mobile-nav" id="mobile-nav">
+
+            <!-- Button X (close) -->
+            <button class="close-menu" id="closeMenu" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#citation">Citation</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about-the-author">Author</a></li>
+            </ul>
+        </nav>
 
         <main>
             <!-- Hero Section -->

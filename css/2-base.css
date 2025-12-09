@@ -60,27 +60,28 @@ margin-block: var(--space-sm)!important;
 .text-sm-semibold { font-size: var(--text-small); font-weight: var(--fw-semibold); }
 
 /* Links: a - not buttons or nav */
-a:not(.btn):not(.main-nav a):not(.logo-link) {
+/* Usar :where() puede ser más legible */
+a:where(:not(.btn):not(.logo-link):not(nav a)) {
     color: var(--text-color-link);
     font-weight: var(--fw-semibold);
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
 
-a:not(.btn):not(.main-nav a):not(.logo-link):hover {
+a:where(:not(.btn):not(.logo-link):not(nav a)):hover {
     text-decoration-thickness: 2px;
     background-color: var(--surface-link-hover);
 }
 
-a:not(.btn):not(.main-nav a):not(.logo-link):active {
+a:where(:not(.btn):not(.logo-link):not(nav a)):active {
     text-decoration-thickness: 2px;
     background-color: var(--surface-link-active);
 }
 
-a:not(.btn):not(.main-nav a):not(.logo-link):focus-visible {
+a:where(:not(.btn):not(.logo-link):not(nav a)):focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-}
+} 
 
 a[aria-disabled="true"],
 a.disabled {

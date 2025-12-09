@@ -20,7 +20,7 @@
 /* Variations Hierarchy */
 
 .btn--primary {
-  background-color:var(--surface-button-primary); 
+  background-color:var(--surface-button-primary);
 }
 
 .btn--primary:hover {

@@ -3,68 +3,48 @@
 // ==============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("mobile-nav");
   const closeBtn = document.getElementById("closeMenu");
-  const navLinks = document.querySelectorAll(".nav-menu a");
+  const navLinks = document.querySelectorAll("#mobile-nav a");
 
   if (!hamburger || !navMenu || !closeBtn) return;
 
-  // función para abrir
+  // Abrir menú
   function openMenu() {
     hamburger.classList.add("active");
     navMenu.classList.add("active");
-    closeBtn.classList.add("visible");   // muestra el botón X
-    closeBtn.style.display = "flex";     // por si el CSS tarda
+    navMenu.classList.add("active"); // Esto debería añadir la clase "active"
 
-    // ARIA
     hamburger.setAttribute("aria-expanded", "true");
     closeBtn.setAttribute("aria-expanded", "true");
 
-    // Move focus inside menu
     const firstLink = navMenu.querySelector("a");
     if (firstLink) firstLink.focus();
   }
 
-  // función para cerrar
+  // Cerrar menú
   function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
-    closeBtn.classList.remove("visible");
 
-     // ARIA
     hamburger.setAttribute("aria-expanded", "false");
     closeBtn.setAttribute("aria-expanded", "false");
 
-    // ocultamos completamente la X después de un breve retardo (coincidiendo con la transición)
-    setTimeout(() => {
-    closeBtn.style.display = "none";
-    }, 300);
-
     hamburger.focus();
-}
+  }
 
-  // toggle con la hamburguesa
+  // Eventos
   hamburger.addEventListener("click", () => {
     if (navMenu.classList.contains("active")) closeMenu();
     else openMenu();
   });
 
-  // click en la X cierra
-  closeBtn.addEventListener("click", () => {
-    closeMenu();
-  });
+  closeBtn.addEventListener("click", closeMenu);
 
-  // close menu when clicking a link
-  navLinks.forEach(link =>
-    link.addEventListener("click", () => {
-      closeMenu();
-    })
-  );
+  navLinks.forEach(link => link.addEventListener("click", closeMenu));
 
-  //  Close clicking outside menu
-  document.addEventListener("click", (e) => {
-    // si el menú está abierto y el click es fuera del navMenu y fuera del hamburger y fuera del closeBtn -> cerrar
+  document.addEventListener("click", e => {
     if (
       navMenu.classList.contains("active") &&
       !navMenu.contains(e.target) &&
@@ -74,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
+
+
 });
+
 
 
 // ==============================================================

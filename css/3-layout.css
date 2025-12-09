@@ -62,14 +62,14 @@ section:last-of-type {
 .section--alternative { background-color: var(--surface-section-alternative); }
 .section--gradient { background: var(--surface-gradient); }
 
-/* Header */
+/* --- General Header --- */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: var(--surface-header);
     backdrop-filter: blur(10px);
-    padding: 0 var(--space-sm);
+    padding: var(--space-sm);
     gap: var(--space-sm);
 }
 
@@ -80,74 +80,44 @@ section:last-of-type {
     justify-content: space-between;
 }
 
-/* Main nav */
-.main-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: var(--space-sm) 0;
-    background-color: var(--surface-header);
-}
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Desktop nav */
+.desktop-nav ul {
     display: flex;
-    justify-content: right;
-    flex-wrap: wrap;
+    gap: var(--space-xs);
 }
 
-.main-nav ul li {
-    margin: 0 var(--space-xs);
-}
-
-.main-nav a {
+.desktop-nav a {
     text-decoration: none;
     color: var(--text-color-nav);
-    font-size: var(--text-body);
     padding: var(--space-xs) var(--space-sm);
-    transition: 0.3s;
 }
 
 /* Navigation interaction states */
-.main-nav a:hover {
+.desktop-nav a:hover {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
 }
 
-.main-nav a:active {
+.desktop-nav a:active {
     text-decoration-thickness: 2px;
     transform: translateY(2px);
     transition: all 0.3s ease;
 }
 
-.main-nav a:focus-visible { /* Focus (keyboard) */
+.desktop-nav a:focus-visible { /* Focus (keyboard) */
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
 }
 
-/* Nav desktop - visible por defecto */
-.nav-menu { 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: right;
-    flex-wrap: wrap;
-}
-
-.nav-menu li {
+.desktop-nav li {
     margin: 0 var(--space-xs);
 }
 
 /* Mobile Navigation (hamburger + overlay menu) */
 /* Hidden on desktop */
 .hamburger {
-    display: none;
+    display: none; /* visible solo en mobile */
     flex-direction: column;
     background: none;
     border: none;
@@ -158,16 +128,20 @@ section:last-of-type {
 
 .hamburger span { 
     display: block; 
-    width: var(--space-lg); 
-    height: 0.13rem; 
+    width: 25px;
+    height: 3px;
     background: var(--color-neutral-0); 
-    margin: 0.3rem 0; 
+    margin: 0.2rem 0; 
     border-radius: var(--radius-sm); 
     transition: .25s; 
 }
 
 .close-menu {
-  display: none; /* Hidden on desktop */
+    display: none;
+}
+
+.mobile-nav {
+    display: none;
 }
 
 .header-inner {
@@ -176,44 +150,46 @@ section:last-of-type {
     justify-content: space-between;
 }
 
-.main-nav {
-    flex: 1 1 auto;
+.desktop-nav {
+    display: block;
+}
+
+.nav-menu-desktop {
+    display: flex;
 }
 
 /* --- Mobile Navigation - here we see the hamburguer --- */
 @media (max-width: 992px) {
+    /* Ocultar nav desktop */
+    .desktop-nav {
+        display: none;
+    }
+
     .hamburger {
         display: flex;
-        z-index: 1100; /* encima del overlay */
+        z-index: 1400; /* encima del overlay */
     }
 
 /* Menu fullscreen (hidden using opacity/visibility) */
-    .nav-menu {
+    .mobile-nav {
+    /* Menu fullscreen */
         position: fixed;
-        inset: 0; /* top:0; right:0; bottom:0; left:0; */
-        width: 100vw;
-        height: 100vh;
+        inset: 0;
+        background-color: var(--surface-header);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--surface-header);
-
-        /* ocultar para que no interfiera, pero permitir transición */
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transform: translateY(-10%);
-        pointer-events: none; /* no clickeable cuando oculto */
-
-        /* animación */
-        transition: opacity 320ms cubic-bezier(.2,.9,.2,1),
-                    transform 320ms cubic-bezier(.2,.9,.2,1),
-                    visibility 0s linear 320ms; /* delay para visibility = oculto después de la transición */
-        z-index: 1050;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        z-index: 1110;
     }
 
-/* When is active: visible y clickeable */
-    .nav-menu.active {
+    /* When is active: visible y clickeable */
+    .mobile-nav.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -221,57 +197,87 @@ section:last-of-type {
         transition-delay: 0.2s;
     }
 
-    .header-inner {
-        justify-content: space-between;
-        padding: var(--space-xs) 0;
-    }
-        
-    /* Estilos para elementos del menú en pantalla completa */
-    .nav-menu li {
+    .nav-menu {
+        list-style: none;
         text-align: center;
-        margin: 0 var(--space-sm)!important;
-        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
-    
-    .nav-menu li a {
+
+    .nav-menu a {
         display: inline-block;
         font-size: var(--text-section) !important;
         font-weight: var(--fw-regular) !important;
         text-decoration: none;
         color: var(--text-color-on-dark);
-        padding: var(--space-md)!important;
+        padding: var(--space-sm)!important;
         width: 100%;
     }
 
-    /* Asegurar que la hamburguesa (cuando se transforma) se vea por encima */
-    .hamburger.active {
-        z-index: 1110;
+    .nav-menu a:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
     }
 
+    /* When is active: visible y clickeable */
+    .hamburger.active {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    /* AÑADIR: Mostrar hamburguesa cuando no está activo */
+    .hamburger:not(.active) {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+        
+    /* Estilos para elementos del menú en pantalla completa */
+    .nav-menu li {
+        text-align: center;
+    }
+
+    /* --- Close button --- */
     .close-menu {
-        position: fixed;
-        top: var(--space-sm);
-        right: var(--space-sm);
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
         width: 2.5rem;
         height: 2.5rem;
-        border: none;
-
-    /* ✨ Semi-transparent background with blur */
-        background: transparent;
-        border: var(--border-width-interactive) solid var(--border-color-interactive);
-        color: var(--text-color-on-dark);
-        border-radius: var(--radius-full);
-
-        display: flex;
+        display: flex; /* siempre flex */
         align-items: center;
         justify-content: center;
-
+        border: var(--border-width-interactive) solid var(--border-color-interactive);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--text-color-on-dark);
         cursor: pointer;
-        z-index: 1120;
-        backdrop-filter: blur(8px);
-        opacity: 0;
-        display: none;
-        transition: opacity 250ms ease, transform 250ms ease, background 250ms ease;
+        opacity: 0; /* oculto inicialmente */
+        z-index: 1500;
+        transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+        visibility: hidden; /* AÑADIR ESTO */
+    }
+
+    /* Cuando el menú está activo, mostrar la X */
+    .mobile-nav.active .close-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        top: 3rem;
+        right: 3rem;
+    }
+
+    /* Visible */
+    .close-menu.visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 9999;
     }
 
     .close-menu svg {
@@ -285,16 +291,13 @@ section:last-of-type {
         transform: scale(1.05);
     }
 
-    /* Visible */
-    .close-menu.visible {
-        display: flex;
-        opacity: 1;
-    }
-
-    header,
-    .main-nav {
+    header {
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+
+    .desktop-nav {
+    display: none;
     }
 }
 
@@ -308,7 +311,7 @@ section:last-of-type {
         display: none !important;
     }
     
-    .nav-menu {
+    .desktop-nav {
         display: flex !important;
         position: static !important;
         opacity: 1 !important;
@@ -322,14 +325,14 @@ section:last-of-type {
         flex-direction: row !important;
     }
     
-    .nav-menu li {
+    .desktop-nav li {
         width: auto !important;
         text-align: left !important;
         border-bottom: none !important;
         margin: 0 0.5rem !important;
     }
     
-    .nav-menu li a {
+    .desktop-nav li a {
         font-size: var(--text-body) !important;
         font-weight: var(--fw-regular) !important;
         padding: var(--space-xs) var(--space-sm) !important;
