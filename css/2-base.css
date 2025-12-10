@@ -58,7 +58,7 @@ margin-block: var(--space-md)!important;;
 
 
 /* Media queries for tipography */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     h1 { font-size: var(--text-headline); }
     h2 { font-size: var(--text-section);  }
     h3 { font-size: var(--text-subtitle); }
