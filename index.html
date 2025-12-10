@@ -253,23 +253,57 @@
                                         </td>
                                     </tr>
                                             
-                                            <!-- PARA AGREGAR MÁS VERSIONES:
-                                            <tr>
-                                                <td data-label="Version" class="version-tag">
-                                                    <span class="badge">v0.3</span>
-                                                </td>
-                                                <td data-label="Release Date" class="version-date">Oct 2025</td>
-                                                <td data-label="What's New" class="version-description">
-                                                    New chapter on Multi-party Negotiation
-                                                </td>
-                                                <td data-label="Download" class="download-cell">
-                                                    <a href="/path/to/v0.3.pdf" class="download-link">
-                                                        <span class="download-text">Download PDF</span>
-                                                        <span class="download-icon">↓</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            -->
+                                    <!-- ===============================================================
+                                    HOW TO ADD NEW VERSIONS
+                                    ===============================================================
+
+                                    1. COPY the template block below
+                                    2. PASTE it ABOVE the v0.2 version (newest versions go FIRST)
+                                    3. UPDATE all the following fields:
+
+                                    TEMPLATE FOR NEW VERSION:
+                                    ---------------------------------------------------------------
+                                    <--
+                                    Version vX.X
+                                    <tr aria-label="Book version vX.X">
+                                        <td data-label="Version" aria-label="Version: vX.X" class="version-tag">
+                                            <span class="badge">vX.X</span>
+                                        </td>
+                                        <td data-label="Release Date" aria-label="Release date: Month YYYY" class="version-date">
+                                            Month YYYY
+                                        </td>
+                                        <td data-label="What's New" aria-label="What's new: Brief description of changes" class="version-description">
+                                            [Description of what's new in this version]
+                                            Examples:
+                                            - Added chapter 5 "Multi-party Negotiation"
+                                            - Updated chapter 3 with new case studies
+                                            - Fixed typos and improved examples
+                                        </td>
+                                        <td data-label="Download" aria-label="Download PDF for version vX.X" class="download-cell">
+                                            <a href="/books/automated-negotiations/vX.X.pdf" class="btn btn--secondary" download>
+                                                <span class="download-text">Download PDF</span>
+                                                <span class="download-icon" aria-hidden="true">↓</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    -->
+
+                                    <!-- 
+                                    BEST PRACTICES:
+                                    ---------------------------------------------------------------
+                                    1. ALWAYS add new versions at the TOP (above v0.2)
+                                    2. Use consistent date format: "Month YYYY" (e.g., "March 2026")
+                                    3. Keep descriptions concise but informative
+                                    4. Test all download links after adding
+                                    5. Update the main page version indicator if exists
+
+                                    FILE ORGANIZATION TIP:
+                                    ---------------------------------------------------------------
+                                    Keep all PDFs in: /books/automated-negotiations/
+                                    Naming convention: vX.X.pdf (e.g., v0.3.pdf, v1.0.pdf)
+                                    
+                                    =============================================================== -->
+
                                 </tbody>
                             </table>
                         </div>
