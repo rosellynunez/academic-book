@@ -327,6 +327,12 @@ table {
     margin: 0 var(--space-xs) 0 var(--space-md);
 }
 
+@media (max-width: 992px) {
+    .logo-container {
+        margin: 0 var(--space-xs) 0 var(--space-xs);
+    }
+}
+
 .logo-link {
     display: inline-block;
     text-decoration: none;
