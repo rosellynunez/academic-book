@@ -89,6 +89,7 @@ section:last-of-type {
 .desktop-nav a {
     text-decoration: none;
     color: var(--text-color-nav);
+    font-size: var(--text-body);
     padding: var(--space-xs) var(--space-sm);
 }
 
@@ -186,6 +187,7 @@ section:last-of-type {
         transform: translateY(-10%);
         transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
         z-index: 1110;
+        padding-bottom: var(--space-xxxl);
     }
 
     /* When is active: visible y clickeable */
@@ -213,7 +215,7 @@ section:last-of-type {
         font-weight: var(--fw-regular) !important;
         text-decoration: none;
         color: var(--text-color-on-dark);
-        padding: var(--space-sm)!important;
+        padding: var(--space-xs)!important;
         width: 100%;
     }
 
@@ -300,6 +302,29 @@ section:last-of-type {
     display: none;
     }
 }
+@media (max-width: 640px) {
+/* --- Close button --- */
+    .nav-menu a {
+    font-size: var(--text-subtitle)!important;
+    }
+
+    .close-menu {
+        top: 2.4rem;
+        right: 2.4rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    /* Cuando el menú está activo, mostrar la X */
+    .mobile-nav.active .close-menu {
+        top: 2.4rem;
+        right: 2.4rem;
+    }
+
+    .site-header {
+        padding: var(--space-xs);
+    }
+}
 
 /* --- Desktop Navigation - Estado Explícito --- */
 @media (min-width: 992px) {
@@ -351,7 +376,13 @@ section:last-of-type {
     min-height: 50vh;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
+.hero-banner {
+    min-height: 32vh;
+    }
+}
+
+@media (max-width: 768px) {
 .hero-banner {
     min-height: 40vh;
     }

@@ -47,17 +47,23 @@ h3 { font-size: var(--text-section); }
 
 .subtitle {
 font-size: var(--text-subtitle);
-margin-block: var(--space-sm)!important;
+margin-block: var(--space-md)!important;;
 }
 
-.text-body {
-    margin-bottom: var(--space-sm);
-    color: var(--text-color-default);
+.text-body { color: var(--text-color-default); line-height: var(--line-height-body); }
+.text-body-semibold  { font-weight: var(--fw-semibold); line-height: var(--line-height-body)}
+
+.text-sm { font-size: var(--text-small) ;line-height: var(--line-height-body); line-height: var(--line-height-body)}
+.text-sm-semibold { font-size: var(--text-small); font-weight: var(--fw-semibold); line-height: var(--line-height-body)}
+
+
+/* Media queries for tipography */
+@media (max-width: 768px) {
+    h1 { font-size: var(--text-headline); }
+    h2 { font-size: var(--text-section);  }
+    h3 { font-size: var(--text-subtitle); }
 }
 
-.text-body-semibold  { font-weight: var(--fw-semibold); }
-.text-sm { font-size: var(--text-small); }
-.text-sm-semibold { font-size: var(--text-small); font-weight: var(--fw-semibold); }
 
 /* Links: a - not buttons or nav */
 /* Usar :where() puede ser más legible */
@@ -87,14 +93,4 @@ a[aria-disabled="true"],
 a.disabled {
     color: var(--color-neutral-500);
     pointer-events: none;
-}
-
-/* Media queries for tipography */
-@media (max-width: 1024px) {
-    h1 { font-size: var(--text-headline); }
-    h2 { font-size: var(--text-section); }
-}
-@media (max-width: 767px) {
-    h1 { font-size: var(--text-section); }
-    h2 { font-size: var(--text-subtitle); }
 }

@@ -214,6 +214,12 @@
   gap: var(--space-md);
 }
 
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+
 .card-content {
   flex: 1; /* To Ocupar all the available */
 }
@@ -238,7 +244,8 @@
   margin: var(--space-sm) 0 !important;
 }
 
-/* Code / Citation card */
+/* -------- Code / Citation card  -------- */
+/* Code card container */
 .card-code {
   display: flex;
   flex-direction:column;
@@ -246,8 +253,11 @@
   background: var(--surface-code);
   overflow: hidden;
   border: var(--border-width-separator) solid var(--border-color-subtle);
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Header “BibTeX” + btn */
 .code-header {
   display: flex;
   justify-content: space-between;
@@ -256,26 +266,32 @@
   padding: 0rem var(--space-sm);
 }
 
+/* Text "BibTeX" */
 .code {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: var(--text-small);
-  font-weight: var(--fw-bold);
   margin: 0;
 }
 
+/* Code block container */
 .code-content {
   padding: var(--space-sm);
+  max-width: 100%;
+  overflow: hidden;          /* avoid external travel */
 }
 
+/* Block styles <pre> */
 .code-content pre {
   margin: 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: var(--text-small);
   line-height: var(--line-height-base);
   overflow-x: auto;
+  white-space: pre;          /* comportamiento natural */
+  overflow-x: auto;          /* scroll si hace falta */
 }
 
 /* Scroll horizontal for code card */
@@ -291,14 +307,6 @@
 .code-content pre::-webkit-scrollbar-thumb {
   background: var(--surface-neutral-5);
   border-radius: var(--radius-sm);
-}
-
-pre {
-  padding: var(--space-xs);
-  border-radius: var(--radius-md);
-  overflow-x: auto; /* <-- evita que se salga del contenedor */
-  font-size: var(--fs-body);
-  line-height: var(--line-height-base);
 }
 
 /* Table: Book versions (desktop & responsive transform to cards) */
@@ -317,18 +325,6 @@ table {
     display: flex;
     align-items: center;
     margin: 0 var(--space-xs) 0 var(--space-md);
-}
-
-@media (max-width: 992px) {
-    .logo-container {
-        margin: 0;
-    }
-
-    .site-logo {
-    width: 64px;
-    height: auto;
-    display: block;
-  }
 }
 
 .logo-link {

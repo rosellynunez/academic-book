@@ -24,8 +24,8 @@
 /* -------------------------------------------------------------
     1.2 Line Heights
    ------------------------------------------------------------- */
---line-height-heading: 1.2;  /* Headings: tighter for stronger visual rhythm */
---line-height-body: 1.4;     /* Body text: comfortable for short reading */
+--line-height-heading: 1.25;  /* Headings: tighter for stronger visual rhythm */
+--line-height-body: 1.5;     /* Body text: comfortable for short reading */
 
 
 /* -------------------------------------------------------------
@@ -33,9 +33,9 @@
    ------------------------------------------------------------- */
 --fs-xxl: 3rem;        
 --fs-xl: 2.25rem;      
---fs-l: 1.75rem;       
+--fs-l: 1.75rem;           
 --fs-m: 1.4rem;        
---fs-s: 1.25rem;       
+--fs-s: 1.125rem;       
 --fs-xs: 0.95rem;      
 
 
@@ -96,7 +96,8 @@
     1.8 Breakpoints
    ------------------------------------------------------------- */
 /* Reference values for media queries */
---bp-sm: 767px;
+--bp-xs: 576px;
+--bp-sm: 768px;
 --bp-md: 992px;
 --bp-lg: 1200px;
 
