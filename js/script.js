@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!hamburger || !navMenu || !closeBtn) return;
 
-  // Abrir menú
+  // Open menu
   function openMenu() {
     hamburger.classList.add("active");
     navMenu.classList.add("active");
-    navMenu.classList.add("active"); // Esto debería añadir la clase "active"
+    navMenu.classList.add("active");
 
     hamburger.setAttribute("aria-expanded", "true");
     closeBtn.setAttribute("aria-expanded", "true");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (firstLink) firstLink.focus();
   }
 
-  // Cerrar menú
+  // Close menu
   function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.focus();
   }
 
-  // Eventos
+  // Events
   hamburger.addEventListener("click", () => {
     if (navMenu.classList.contains("active")) closeMenu();
     else openMenu();
@@ -55,9 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
 });
-
 
 
 // ==============================================================
@@ -101,10 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ==============================================================
-// SCROLL REVEAL (Intersection Observer)
+// SCROLL REVEAL
 // ==============================================================
 
-// Seleccionamos todas las secciones que queremos animar
 const revealSections = document.querySelectorAll('.reveal-section');
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -112,28 +109,24 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
         if (entry.isIntersecting) {
 
-            // Agregamos delay dinámico por índice (cascada)
             const delayClass = `reveal-delay-${index + 1}`;
             entry.target.classList.add(delayClass);
 
-            // Agregamos la clase que activa la animación
             entry.target.classList.add('visible');
             
-            // Dejamos de observarla (solo se anima una vez)
             observer.unobserve(entry.target);
         }
 
     });
 }, {
-    threshold: 0.1 // Se activa cuando el 10% de la sección es visible
+    threshold: 0.1
 });
 
-// Iniciamos la observación
 revealSections.forEach(section => revealObserver.observe(section));
 
 
 // ==============================================================
-// AVOIDING FRAGMENT IDENTIFIER (contains hash)
+// AVOIDING FRAGMENT IDENTIFIER
 // ==============================================================
 
 if ("scrollRestoration" in history) {
@@ -143,5 +136,3 @@ if ("scrollRestoration" in history) {
 window.addEventListener("load", function () {
     window.scrollTo(0, 0);
 });
-
-

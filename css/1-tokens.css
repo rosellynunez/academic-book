@@ -1,5 +1,5 @@
 /*  =============================================================
-    DESIGN TOKENS
+    1️⃣ DESIGN TOKENS
     ============================================================= */
 
 /*  =============================================================
@@ -10,241 +10,265 @@
 
 :root {
 
-/* -------------------------------------------------------------
-    1.1 Font Families & Weights
-   ------------------------------------------------------------- */
+/*  =========================================================
+    1.1 Typography — Foundations
+    ========================================================= */
 
---font-base: "Plus Jakarta Sans", sans-serif;
-
---fw-regular: 400;          /* Body text */
---fw-semibold: 600;         /* Subtle emphasis */
---fw-bold: 700;             /* Strong emphasis */
-
-
-/* -------------------------------------------------------------
-    1.2 Line Heights
-   ------------------------------------------------------------- */
---line-height-heading: 1.25;  /* Headings: tighter for stronger visual rhythm */
---line-height-body: 1.5;     /* Body text: comfortable for short reading */
+/*  ---------------------------------------------------------
+    1.1.1 Font Families
+    --------------------------------------------------------- */
+    --font-base: "Plus Jakarta Sans", sans-serif;
 
 
-/* -------------------------------------------------------------
-    1.3 Type Scale
-   ------------------------------------------------------------- */
---fs-xxl: 3rem;        
---fs-xl: 2.25rem;      
---fs-l: 1.75rem;           
---fs-m: 1.4rem;        
---fs-s: 1.125rem;       
---fs-xs: 0.95rem;      
+/*  ---------------------------------------------------------
+    1.1.2 Font Weights
+    --------------------------------------------------------- */
+    --fw-regular: 400;          /* Body text */
+    --fw-semibold: 600;         /* Subtle emphasis */
+    --fw-bold: 700;             /* Strong emphasis */
 
 
-/* -------------------------------------------------------------
-    1.4 Semantic Typography Tokens
-    Roles instead of sizes — optional but professional.
-   ------------------------------------------------------------- */
---text-hero: var(--fs-xxl);      /* Page hero/primary title */
---text-headline: var(--fs-xl);  /* Major section titles */
---text-section: var(--fs-l);   /* Subsections, card headers */
---text-subtitle: var(--fs-m);   /* Supporting headings, intros */
---text-body: var(--fs-s);           /* Main content text */
---text-small: var(--fs-xs);         /* Small text, labels, metadata */
+/*  ---------------------------------------------------------
+    1.1.3 Line Heights
+    --------------------------------------------------------- */
+    --line-height-heading: 1.25;  /* Headings */
+    --line-height-body: 1.5;      /* Body text */
 
 
-/* -------------------------------------------------------------
-    1.4 Spacing Scale
-   ------------------------------------------------------------- */
---space-xs: 0.5rem;      /* Smallest practical spacing */
---space-sm: 1rem;        /* Standard component spacing */
---space-md: 1.5rem;      /* Comfortable spacing */
---space-lg: 2rem;        /* Generous spacing */
---space-xl: 3rem;        /* Large spacing */
---space-xxl: 4rem;       /* Extra large spacing */
---space-xxxl: 6rem;      /* Feature spacing */
---space-giant: 8rem;     /* Maximum spacing */          
+/* ----------------------------------------------------------
+    1.1.4 Font Sizes (Type Scale)
+    --------------------------------------------------------- */
+    --fs-xxl: 3rem;        
+    --fs-xl: 2.25rem;      
+    --fs-l: 1.75rem;           
+    --fs-m: 1.4rem;        
+    --fs-s: 1.125rem;       
+    --fs-xs: 0.95rem;      
 
 
-/* -------------------------------------------------------------
-    1.5 Borders
-   ------------------------------------------------------------- */
---border-width-interactive: 2px;   /* for secondary buttons */
---border-width-separator: 1px;     /* UI dividers */  
+/*  =========================================================
+    1.2 Layout & Spacing
+    ========================================================= */
+
+/*  ---------------------------------------------------------
+    1.2.1 Spacing Scale
+    --------------------------------------------------------- */
+    --space-xs: 0.5rem;      /* Smallest practical spacing */
+    --space-sm: 1rem;        /* Standard component spacing */
+    --space-md: 1.5rem;      /* Comfortable spacing */
+    --space-lg: 2rem;        /* Generous spacing */
+    --space-xl: 3rem;        /* Large spacing */
+    --space-xxl: 4rem;       /* Extra large spacing */
+    --space-xxxl: 6rem;      /* Feature spacing */
+    --space-giant: 8rem;     /* Maximum spacing */          
 
 
-/* -------------------------------------------------------------
-    1.6 Radii
-   ------------------------------------------------------------- */
---radius-sm: 0.3rem;        /* Small elements */
---radius-md: 0.6rem;        /* Cards, images */
---radius-lg: 1.2rem;        /* Featured sections */
---radius-full: 999px;       /* Circles, pills */
+/*  =========================================================
+    1.3 Borders & Radius
+    ========================================================= */
+
+/*  ---------------------------------------------------------
+    1.3.1 Border Widths
+    --------------------------------------------------------- */
+    --border-width-interactive: 2px;   /* for secondary buttons */
+    --border-width-separator: 1px;     /* UI dividers */  
 
 
-/* -------------------------------------------------------------
-    1.7 Shadows
-   ------------------------------------------------------------- */
---shadow-sm:    0 1px 1px rgba(0, 0, 0, 0.06),      /* Buttons */
-                0 2px 3px rgba(0, 0, 0, 0.05);     
-
---shadow-md:    0 2px 3px rgba(0, 0, 0, 0.18),      /* Buttons active */
-                0 4px 8px rgba(0, 0, 0, 0.12);     
-
---shadow-lg:    0 10px 20px rgba(0, 0, 0, 0.12),    /* Cards, modals */
-                0 22px 45px rgba(0, 0, 0, 0.10);
-
-/* -------------------------------------------------------------
-    1.8 Breakpoints
-   ------------------------------------------------------------- */
-/* Reference values for media queries */
---bp-xs: 576px;
---bp-sm: 768px;
---bp-md: 992px;
---bp-lg: 1200px;
+/*  ---------------------------------------------------------
+    1.3.2 Border Radius
+    --------------------------------------------------------- */
+    --radius-sm: 0.3rem;        /* Small elements */
+    --radius-md: 0.6rem;        /* Cards, images */
+    --radius-lg: 1.2rem;        /* Featured sections */
+    --radius-full: 999px;       /* Circles, pills */
 
 
-/*  =============================================================
-    2. RAW COLOR TOKENS (COLOR PALETTE)
-    These colors act as the foundation for semantic tokens.
-    ============================================================= */
+/*  =========================================================
+    1.4 Elevation
+    ========================================================= */
 
-/* -------------------------------------------------------------
+/*  ---------------------------------------------------------
+    1.4.1 Shadows
+    --------------------------------------------------------- */
+    --shadow-sm:    0 1px 1px rgba(0, 0, 0, 0.06),   /* Buttons */
+                    0 2px 3px rgba(0, 0, 0, 0.05);     
+
+    --shadow-md:    0 2px 3px rgba(0, 0, 0, 0.18),    /* Buttons active */
+                    0 4px 8px rgba(0, 0, 0, 0.12);     
+
+    --shadow-lg:    0 10px 20px rgba(0, 0, 0, 0.12),  /* Cards, modals */
+                    0 22px 45px rgba(0, 0, 0, 0.10);
+
+
+/*  ----------------------------------------------------------
+    1.9 Breakpoints (Reference only)
+    ---------------------------------------------------------- */
+    --bp-xs: 576px;
+    --bp-sm: 768px;
+    --bp-md: 992px;
+    --bp-lg: 1200px;
+
+
+/*  =========================================================
+    2. RAW COLOR TOKENS
+    ========================================================= */
+
+/*  ---------------------------------------------------------
     2.1 Primary
-   ------------------------------------------------------------- */
---color-primary-50: #E2EFFE;
---color-primary-100: #C4DDF8;
---color-primary-200: #93BEEC;
---color-primary-300: #6497CE;
---color-primary-500: #1257A1;
---color-primary-600: #003C7A;       /* Brand Blue */
---color-primary-700: #002752;
---color-primary-900: #000F1F;
+    --------------------------------------------------------- */
+    --color-primary-50: #E2EFFE;
+    --color-primary-100: #C4DDF8;
+    --color-primary-200: #93BEEC;
+    --color-primary-300: #6497CE;
+    --color-primary-500: #1257A1;
+    --color-primary-600: #003C7A;       /* Brand Blue */
+    --color-primary-700: #002752;
+    --color-primary-900: #000F1F;
 
-/* -------------------------------------------------------------
+
+/*  ---------------------------------------------------------
     2.2 Secondary
-   ------------------------------------------------------------- */
---color-secondary-50: #D7F4F4;
---color-secondary-200: #85E0E0;
---color-secondary-300: #2ED1D1;     /* Brand Turquoise */
---color-secondary-400: #20B6B6;
---color-secondary-500: #009899;
+    --------------------------------------------------------- */
+    --color-secondary-50: #D7F4F4;
+    --color-secondary-200: #85E0E0;
+    --color-secondary-300: #2ED1D1;     /* Brand Turquoise */
+    --color-secondary-400: #20B6B6;
+    --color-secondary-500: #009899;
 
-/* -------------------------------------------------------------
+
+/*  ---------------------------------------------------------
     2.3 Neutrals
-   ------------------------------------------------------------- */
---color-neutral-0: #FFFFFF;
---color-neutral-50: #F5F5F5;
---color-neutral-75: #EBEBEB;
---color-neutral-100: #DEDEDE;
---color-neutral-200: #CCCCCC;
---color-neutral-500: #949494;
+    --------------------------------------------------------- */
+    --color-neutral-0: #FFFFFF;
+    --color-neutral-50: #F5F5F5;
+    --color-neutral-75: #EBEBEB;
+    --color-neutral-100: #DEDEDE;
+    --color-neutral-200: #CCCCCC;
+    --color-neutral-500: #949494;
 
 
 
-/*  =============================================================
+/*  ============================================================
     3. SEMANTIC COLOR TOKENS
     These tokens communicate meaning, not appearance.
     They adapt raw colors to roles across the UI.
-    ============================================================= */
+    ============================================================ */
 
-/* -------------------------------------------------------------
-    3.1 Surfaces
-   ------------------------------------------------------------- */
-
-/* Base surfaces */
---surface-section: var(--color-neutral-50);
---surface-section-alternative: var(--color-neutral-75);
-
-/* Decorative gradients */
---surface-hero-gradient: 
-    linear-gradient( 
-        60deg, color-mix(in srgb, var(--color-secondary-200) 50%, transparent) -10%, color-mix(in srgb, var(--color-secondary-200) 10%, var(--color-primary-600) 25%) 15%, /* Mezcla intermedia */ color-mix(in srgb, var(--color-primary-600) 40%, transparent) 30%, /* Inicio más tarde */ color-mix(in srgb, var(--color-primary-600) 40%, transparent) 70%, color-mix(in srgb, var(--color-primary-300) 40%, transparent) 100% ), 
-        var(--color-primary-600);
-
---surface-gradient: 
-    linear-gradient( 
-        107.81deg, color-mix(in srgb, var(--color-primary-100) 50%, transparent) 12%, color-mix(in srgb, var(--color-primary-50) 80%, transparent) 48%, color-mix(in srgb, var(--color-secondary-200) 20%, transparent) 80% ), 
-        var(--color-neutral-0);
-
-/* High-structure areas */
---surface-header: var(--color-primary-900);
---surface-footer: var(--color-primary-700);
-
-/* UI components */
---surface-card: var(--color-neutral-0);
-
-/* Data displays */
---surface-table-container: var(--color-neutral-0);
---surface-table-header: var(--color-neutral-75);
-
-/* Code blocks */
---surface-code: var(--color-neutral-0);
---surface-code-header: var(--color-neutral-75);
-
-/* Subtle UI elements */
---surface-subtle: var(--color-primary-50);
+/*  ---------------------------------------------------------
+    3.1 Semantic Typography
+    --------------------------------------------------------- */
+    --text-hero: var(--fs-xxl);
+    --text-headline: var(--fs-xl);
+    --text-section: var(--fs-l);
+    --text-subtitle: var(--fs-m);
+    --text-body: var(--fs-s);
+    --text-small: var(--fs-xs);
 
 
-/* -------------------------------------------------------------
-    3.2 Borders
-   ------------------------------------------------------------- */
---border-color-subtle: var(--color-neutral-100);
---border-color-interactive: var(--color-secondary-300);
+/*  ---------------------------------------------------------
+    3.2 Surfaces
+    --------------------------------------------------------- */
+    /* Sections */
+    --surface-section: var(--color-neutral-50);
+    --surface-section-alternative: var(--color-neutral-75);
+
+    /* High-structure areas */
+    --surface-header: var(--color-primary-900);
+    --surface-footer: var(--color-primary-700);
+
+    /* UI components */
+    --surface-card: var(--color-neutral-0);
+
+    /* Subtle UI elements */
+    --surface-subtle: var(--color-primary-50);  
+
+    /* Tables & code */
+    --surface-table-container: var(--color-neutral-0);
+    --surface-table-header: var(--color-neutral-75);
+    --surface-code: var(--color-neutral-0);
+    --surface-code-header: var(--color-neutral-75);
 
 
-/* -------------------------------------------------------------
+    /* Decorative gradients */
+    --surface-hero-gradient: 
+        linear-gradient( 
+            60deg, 
+            color-mix(in srgb, var(--color-secondary-200) 50%, transparent) -10%, 
+            color-mix(in srgb, var(--color-secondary-200) 10%, var(--color-primary-600) 25%) 15%,
+            color-mix(in srgb, var(--color-primary-600) 40%, transparent) 30%,
+            color-mix(in srgb, var(--color-primary-600) 40%, transparent) 70%, 
+            color-mix(in srgb, var(--color-primary-300) 40%, transparent) 100% ), 
+            var(--color-primary-600);
+
+    --surface-gradient: 
+        linear-gradient( 
+            107.81deg, 
+            color-mix(in srgb, var(--color-primary-100) 50%, transparent) 12%, 
+            color-mix(in srgb, var(--color-primary-50) 80%, transparent) 48%, 
+            color-mix(in srgb, var(--color-secondary-200) 20%, transparent) 80% ), 
+            var(--color-neutral-0);
+
+
+/*  ---------------------------------------------------------
     3.3 Text Colors
-   ------------------------------------------------------------- */
---text-color-default: var(--color-primary-600);
---text-color-on-dark: var(--color-neutral-50);
---text-color-disabled: var(--color-neutral-500);
+    --------------------------------------------------------- */
+    --text-color-default: var(--color-primary-600);
+    --text-color-on-dark: var(--color-neutral-50);
+    --text-color-disabled: var(--color-neutral-500);
 
-/* Buttons */
---text-color-button: var(--color-primary-700);
+    /* Buttons */
+    --text-color-button: var(--color-primary-700);
 
-/* Links */
---text-color-link: var(--color-secondary-500);
+    /* Links */
+    --text-color-link: var(--color-secondary-500);
 
-/* Navbar */
---text-color-nav: var(--color-neutral-50);
-
-
-
-/* -------------------------------------------------------------
-    3.4 Interactive surfaces (buttons, hovers, actives)
-   ------------------------------------------------------------- */
-
-/* Buttons */
---surface-button-primary:            var(--color-secondary-200);
---surface-button-primary-hover:      var(--color-secondary-300);
---surface-button-primary-active:     var(--surface-button-primary-hover);
-
---surface-button-secondary:          var(--color-neutral-0);
---surface-button-secondary-hover:    var(--color-secondary-50);
---surface-button-secondary-active: var(--color-secondary-50);
-
-/* Links */
---surface-link-hover:  color-mix(in srgb, var(--color-secondary-300) 15%, transparent);
---surface-link-active: color-mix(in srgb, var(--color-secondary-300) 30%, transparent);
-
-/* Disabled state */
---surface-disabled: var(--color-neutral-200);
+    /* Navbar */
+    --text-color-nav: var(--color-neutral-50);
 
 
+/*  ---------------------------------------------------------
+    3.4 Interactive Elements
+    --------------------------------------------------------- */
 
-/* -------------------------------------------------------------
-    3.5 Focus
-   ------------------------------------------------------------- */
---focus-ring-color: #318bff;
---focus-ring-width: 2px;
---focus-ring-offset: 1px;
+    /* Buttons */
+    --surface-button-primary:            var(--color-secondary-200);
+    --surface-button-primary-hover:      var(--color-secondary-300);
+    --surface-button-primary-active:     var(--surface-button-primary-hover);
+
+    --surface-button-secondary:          var(--color-neutral-0);
+    --surface-button-secondary-hover:    var(--color-secondary-50);
+    --surface-button-secondary-active: var(--color-secondary-50);
+
+    /* Links */
+    --surface-link-hover:  
+        color-mix(in srgb, var(--color-secondary-300) 15%, transparent);
+    --surface-link-active: 
+        color-mix(in srgb, var(--color-secondary-300) 30%, transparent);
+
+    /* Disabled state */
+    --surface-disabled: var(--color-neutral-200);
 
 
+/*  ---------------------------------------------------------
+    3.5 Borders
+    --------------------------------------------------------- */
+    --border-color-subtle: var(--color-neutral-100);
+    --border-color-interactive: var(--color-secondary-300);
 
-/* -------------------------------------------------------------
-    3.6 Status Colors
-   ------------------------------------------------------------- */
---status-success: #008820;
---status-error: #dc3545;
---status-warning: #ffc107;
+
+/*  ---------------------------------------------------------
+    3.6 Focus
+    --------------------------------------------------------- */
+    --focus-ring-color: #318bff;
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 1px;
+
+
+/*  ---------------------------------------------------------
+    3.7 Status Colors
+    --------------------------------------------------------- */
+    --status-success: #008820;
+    --status-error:   #dc3545;
+    --status-warning:#ffc107;
 
 }

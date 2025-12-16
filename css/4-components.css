@@ -3,7 +3,348 @@
     ======================================== */
 /* Buttons, cards, modals, alerts, badges, etc. */
 
-/* Buttons */
+
+/* =============== Header =============== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--surface-header);
+    backdrop-filter: blur(10px);
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+}
+
+/* Layout intern */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--surface-hero-gradient);
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 100%;
+    padding: var(--space-xl) var(--space-lg);
+    color: var(--text-color-on-dark);
+}
+
+.banner-content .subtitle {
+    color: var(--text-color-on-dark);
+}
+
+.hero-banner .btn--primary {
+    margin-top: var(--space-xs);
+}
+
+
+/* Desktop nav */
+.desktop-nav ul {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-color-nav);
+    font-size: var(--text-body);
+    padding: var(--space-xs) var(--space-sm);
+}
+
+/* Navigation interaction states */
+.desktop-nav a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.desktop-nav a:active {
+    text-decoration-thickness: 2px;
+    transform: translateY(2px);
+    transition: all 0.3s ease;
+}
+
+.desktop-nav a:focus-visible { /* Focus (keyboard) */
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+.desktop-nav li {
+    margin: 0 var(--space-xs);
+}
+
+/* Mobile Navigation (hamburger + overlay menu) */
+/* Hidden on desktop */
+.hamburger {
+    display: none; /* visible solo en mobile */
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    margin-left: auto;
+}
+
+.hamburger span { 
+    display: block; 
+    width: 25px;
+    height: 3px;
+    background: var(--color-neutral-0); 
+    margin: 0.2rem 0; 
+    border-radius: var(--radius-sm); 
+    transition: .25s; 
+}
+
+.close-menu {
+    display: none;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.desktop-nav {
+    display: block;
+}
+
+.nav-menu-desktop {
+    display: flex;
+}
+
+/* --- Mobile Navigation --- */
+@media (max-width: 992px) {
+    /* Ocultar nav desktop */
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1400; /* encima del overlay */
+    }
+
+/* Menu fullscreen (hidden using opacity/visibility) */
+    .mobile-nav {
+        position: fixed;
+        inset: 0;
+        background-color: var(--surface-header);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10%);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        z-index: 1110;
+        padding-bottom: var(--space-xxxl);
+    }
+
+    /* When is active: visible y clickeable */
+    .mobile-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition-delay: 0.2s;
+    }
+
+    .nav-menu {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .nav-menu a {
+        display: inline-block;
+        font-size: var(--text-section) !important;
+        font-weight: var(--fw-regular) !important;
+        text-decoration: none;
+        color: var(--text-color-on-dark);
+        padding: var(--space-xs)!important;
+        width: 100%;
+    }
+
+    .nav-menu a:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+    }
+
+    /* When is active: visible y clickeable */
+    .hamburger.active {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .hamburger:not(.active) {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+        
+    .nav-menu li {
+        text-align: center;
+    }
+
+    /* --- Close button --- */
+    .close-menu {
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex; /* siempre flex */
+        align-items: center;
+        justify-content: center;
+        border: var(--border-width-interactive) solid var(--border-color-interactive);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--text-color-on-dark);
+        cursor: pointer;
+        opacity: 0; /* oculto inicialmente */
+        z-index: 1500;
+        transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+        visibility: hidden; /* AÑADIR ESTO */
+    }
+
+    .mobile-nav.active .close-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        top: 3rem;
+        right: 3rem;
+    }
+
+    .close-menu.visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 9999;
+    }
+
+    .close-menu svg {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .close-menu:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.05);
+    }
+
+    header {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .desktop-nav {
+    display: none;
+    }
+}
+
+@media (max-width: 640px) {
+/* --- Close button --- */
+    .nav-menu a {
+    font-size: var(--text-subtitle)!important;
+    }
+
+    .close-menu {
+        top: 2.4rem;
+        right: 2.4rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .mobile-nav.active .close-menu {
+        top: 2.4rem;
+        right: 2.4rem;
+    }
+
+    .site-header {
+        padding: var(--space-xs);
+    }
+}
+
+/* --- Desktop Navigation - Explicit--- */
+@media (min-width: 992px) {
+    .hamburger {
+        display: none !important;
+    }
+    
+    .close-menu {
+        display: none !important;
+    }
+    
+    .desktop-nav {
+        display: flex !important;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        height: auto !important;
+        width: auto !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        flex-direction: row !important;
+    }
+    
+    .desktop-nav li {
+        width: auto !important;
+        text-align: left !important;
+        border-bottom: none !important;
+        margin: 0 0.5rem !important;
+    }
+    
+    .desktop-nav li a {
+        font-size: var(--text-body) !important;
+        font-weight: var(--fw-regular) !important;
+        padding: var(--space-xs) var(--space-sm) !important;
+        width: auto !important;
+    }
+}
+
+
+
+/* =============== Space after p + component =============== */
+p + :where(
+  .card,
+  .card-code,
+  .grid-cards,
+  .cards-flex,
+  .versions-table-container
+) {
+  margin-block-start: var(--space-lg);
+}
+
+
+
+/* =============== Buttons =============== */
 .btn {
   display: inline-block;
   padding: var(--space-xs) var(--space-lg);
@@ -17,8 +358,9 @@
   align-items: center;
 }
 
-/* Variations Hierarchy */
+/* ----- Variations Hierarchy ----- */ 
 
+/* ----- Primary button ----- */ 
 .btn--primary {
   background-color:var(--surface-button-primary);
 }
@@ -41,6 +383,7 @@
   outline-offset: var(--focus-ring-offset);
 }
 
+/* ----- Primary secondary ----- */ 
 .btn--secondary {
   background-color: var(--surface-button-secondary);
   border: var(--border-width-interactive) solid var(--border-color-interactive);
@@ -94,10 +437,9 @@
   color: currentColor;
 }
 
-/* ---------- Copy button (built on .btn-icon) ---------- */
 
+/* ----- Copy button ----- */ 
 .btn-copy {
-  /* hereda display, gap, border-radius, etc. de .btn-icon */
   padding: var(--space-xs);
   background: transparent;
   border: none;
@@ -105,14 +447,14 @@
   cursor: pointer;
 }
 
-/* Texto y feedback dentro del botón */
+/* Feedback inside the btn */
 .btn-copy .copy-text {
   margin-left: calc(var(--space-xs) / 2);
   font-size: var(--text-small);
   line-height: var(--line-height-base);
 }
 
-/* Visual feedback (success) - oculto por defecto */
+/* Visual feedback (success) - hidden initially */
 .btn-copy .copy-icon-success,
 .btn-copy .copied-feedback {
   display: none;
@@ -120,7 +462,7 @@
   font-size: var(--text-small);
 }
 
-/* Estado "copied" (añadido por tu JS) */
+/* "copied" state (added by js) */
 .btn-copy.copied .copy-icon {
   display: none;
 }
@@ -184,33 +526,24 @@
   width: 1rem;
   height: 1rem;
   position: relative;
-  top: 1px; /* Ajuste fino si es necesario */
+  top: 1px;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
-/* --- Cards --- */
+/* =============== Card =============== */
 .card {
   border-radius: var(--radius-md);
   background-color: var(--surface-card);
   box-shadow: var(--shadow-lg);
   transition: transform 0.3s ease;
+
   padding-block-start: var(--space-md);
   padding-block-end: var(--space-lg);
   padding-inline: var(--space-md);
-  display: flex; /* ← AÑADE ESTO */
-  flex-direction: column; /* ← Y ESTO */
-  height: 100%; /* ← Para que todas tengan la misma altura */
+
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
   gap: var(--space-md);
 }
 
@@ -219,9 +552,8 @@
   box-shadow: var(--shadow-lg);
 }
 
-
 .card-content {
-  flex: 1; /* To Ocupar all the available */
+  flex: 1;
 }
 
 .grid-cards {
@@ -244,7 +576,8 @@
   margin: var(--space-sm) 0 !important;
 }
 
-/* -------- Code / Citation card  -------- */
+
+/* =============== Citation code card =============== */
 /* Code card container */
 .card-code {
   display: flex;
@@ -268,6 +601,7 @@
 
 /* Text "BibTeX" */
 .code {
+  margin-block-start: var(--space-lg);
   display: flex;
   align-items: center;
   gap: var(--space-xs);
@@ -280,7 +614,7 @@
 .code-content {
   padding: var(--space-sm);
   max-width: 100%;
-  overflow: hidden;          /* avoid external travel */
+  overflow: hidden;   
 }
 
 /* Block styles <pre> */
@@ -290,11 +624,11 @@
   font-size: var(--text-small);
   line-height: var(--line-height-base);
   overflow-x: auto;
-  white-space: pre;          /* comportamiento natural */
-  overflow-x: auto;          /* scroll si hace falta */
+  white-space: pre;
+  overflow-x: auto;
 }
 
-/* Scroll horizontal for code card */
+/* Horizontal scroll */
 .code-content pre::-webkit-scrollbar {
   height: 6px;
 }
@@ -309,12 +643,9 @@
   border-radius: var(--radius-sm);
 }
 
-/* Table: Book versions (desktop & responsive transform to cards) */
-table {
-  border-spacing: 0;
-}
 
-/* Logo */
+
+/* =============== Logo =============== */
 .site-logo {
     width: 44px;
     height: auto;
@@ -344,6 +675,21 @@ table {
     outline-offset: var(--focus-ring-offset);
 }
 
+
+
+/* =============== Image container =============== */
+.image-container {
+    overflow: hidden; /* Para que el border-radius funcione bien */
+}
+
+
+
+/* =============== Table =============== */
+
+table {
+  border-spacing: 0;
+}
+
 /* Table conntainer */
 .versions-table-container {
   background: var(--surface-table-container);
@@ -368,14 +714,12 @@ table {
   border-radius: var(--radius-md);
 }
 
-/* give the table head rounded top corners */
 .versions-table thead th:first-child {
   border-top-left-radius: var(--radius-md);
 }
 
 .versions-table thead th:last-child {
   border-top-right-radius: var(--radius-md);
-  /* ensure background doesn't bleed under rounded corners */
   background-clip: padding-box;
 }
 
@@ -386,7 +730,7 @@ table {
   font-weight: var(--fw-semibold);
 }
 
-/* Filas y celdas */
+/* Rows and cells */
 .versions-table td {
   padding: var(--space-sm) var(--space-md);
   border-bottom: var(--border-width-separator) solid var(--border-color-subtle);
@@ -396,7 +740,7 @@ table {
   border-bottom: none;
 }
 
-/* Badge de versión */
+/* Badge */
 .badge {
   display: inline-block;
   padding: var(--space-xs) var(--space-sm);
@@ -427,12 +771,11 @@ table {
   margin: 0;
 }
 
-/* Botón de descarga */
 .download-cell {
   text-align: center;
 }
 
-/* Table: Versions (desktop & responsive transform to cards) */
+/* Responsive versions table (transform to cards) */
 
 /* Tablet */
 @media (max-width: 1024px) {
@@ -480,14 +823,12 @@ table {
         border: none;
     }
     
-    /* Mostrar labels usando data-label */
     .versions-table td::before {
       content: attr(data-label);
       font-weight: var(--fw-semibold);
       text-align: left;
     }
     
-    /* Excepciones para algunas celdas */
     .download-cell::before {
       display: none;
     }
@@ -505,7 +846,10 @@ table {
     }
 }
 
-/* Author block */
+
+
+/* =============== Author =============== */
+
 .author-photo {
   width: 14rem;
   height: 14rem;

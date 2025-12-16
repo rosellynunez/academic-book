@@ -3,36 +3,28 @@
     ======================================== */
 /* Containers, grid system, section, header, hero, footer, sections */
 
-/* --- Containers --- */
+/* ========= Containers ========= */
 .container {
     width: 100%;
-    max-width: 80%; /* ≈ 1200px, base container */
+    max-width: min(80%, 75rem);
     margin-inline: auto;
 }
 
 /* Widht variants */
 .container--md {
-    width: 66%;
+    width: 100%;
+    max-width: min(66%, 60rem);
     margin-inline: auto;
 }
 
-@media (max-width: 1024px) {
-.container--md {
-        width: 75%;
-    }
+/* Book versions section */
+#book-versions .container--md {
+    border-top: var(--border-width-separator) solid var(--border-color-subtle);
+    padding-top: var(--space-xxl);
 }
 
-@media (max-width: 767px) {
-.container--md {
-        width: 85%;
-    }
-}
 
-.image-container {
-    overflow: hidden; /* Para que el border-radius funcione bien */
-}
-
-/* --- Sections --- */
+/* ========= Sections ========= */
 /* Default section breathing space */
 section {
     padding-block: var(--space-lg);
@@ -53,7 +45,6 @@ section:last-of-type {
     margin-block-start: var(--space-xxl);
 }
 
-/* Remueve el margin específicamente después del hero */
 .hero-banner + section {
     margin-block-start: 0;
 }
@@ -62,311 +53,8 @@ section:last-of-type {
 .section--alternative { background-color: var(--surface-section-alternative); }
 .section--gradient { background: var(--surface-gradient); }
 
-/* --- General Header --- */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--surface-header);
-    backdrop-filter: blur(10px);
-    padding: var(--space-sm);
-    gap: var(--space-sm);
-}
 
-/* Layout intern */
-.header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Desktop nav */
-.desktop-nav ul {
-    display: flex;
-    gap: var(--space-xs);
-}
-
-.desktop-nav a {
-    text-decoration: none;
-    color: var(--text-color-nav);
-    font-size: var(--text-body);
-    padding: var(--space-xs) var(--space-sm);
-}
-
-/* Navigation interaction states */
-.desktop-nav a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-}
-
-.desktop-nav a:active {
-    text-decoration-thickness: 2px;
-    transform: translateY(2px);
-    transition: all 0.3s ease;
-}
-
-.desktop-nav a:focus-visible { /* Focus (keyboard) */
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-}
-
-.desktop-nav li {
-    margin: 0 var(--space-xs);
-}
-
-/* Mobile Navigation (hamburger + overlay menu) */
-/* Hidden on desktop */
-.hamburger {
-    display: none; /* visible solo en mobile */
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-xs);
-    margin-left: auto;
-}
-
-.hamburger span { 
-    display: block; 
-    width: 25px;
-    height: 3px;
-    background: var(--color-neutral-0); 
-    margin: 0.2rem 0; 
-    border-radius: var(--radius-sm); 
-    transition: .25s; 
-}
-
-.close-menu {
-    display: none;
-}
-
-.mobile-nav {
-    display: none;
-}
-
-.header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.desktop-nav {
-    display: block;
-}
-
-.nav-menu-desktop {
-    display: flex;
-}
-
-/* --- Mobile Navigation - here we see the hamburguer --- */
-@media (max-width: 992px) {
-    /* Ocultar nav desktop */
-    .desktop-nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-        z-index: 1400; /* encima del overlay */
-    }
-
-/* Menu fullscreen (hidden using opacity/visibility) */
-    .mobile-nav {
-    /* Menu fullscreen */
-        position: fixed;
-        inset: 0;
-        background-color: var(--surface-header);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-10%);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-        z-index: 1110;
-        padding-bottom: var(--space-xxxl);
-    }
-
-    /* When is active: visible y clickeable */
-    .mobile-nav.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-        transition-delay: 0.2s;
-    }
-
-    .nav-menu {
-        list-style: none;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .nav-menu a {
-        display: inline-block;
-        font-size: var(--text-section) !important;
-        font-weight: var(--fw-regular) !important;
-        text-decoration: none;
-        color: var(--text-color-on-dark);
-        padding: var(--space-xs)!important;
-        width: 100%;
-    }
-
-    .nav-menu a:hover {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 3px;
-    }
-
-    /* When is active: visible y clickeable */
-    .hamburger.active {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-
-    /* AÑADIR: Mostrar hamburguesa cuando no está activo */
-    .hamburger:not(.active) {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-        
-    /* Estilos para elementos del menú en pantalla completa */
-    .nav-menu li {
-        text-align: center;
-    }
-
-    /* --- Close button --- */
-    .close-menu {
-        position: absolute;
-        top: 3rem;
-        right: 3rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        display: flex; /* siempre flex */
-        align-items: center;
-        justify-content: center;
-        border: var(--border-width-interactive) solid var(--border-color-interactive);
-        border-radius: 50%;
-        background: transparent;
-        color: var(--text-color-on-dark);
-        cursor: pointer;
-        opacity: 0; /* oculto inicialmente */
-        z-index: 1500;
-        transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
-        visibility: hidden; /* AÑADIR ESTO */
-    }
-
-    /* Cuando el menú está activo, mostrar la X */
-    .mobile-nav.active .close-menu {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        top: 3rem;
-        right: 3rem;
-    }
-
-    /* Visible */
-    .close-menu.visible {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        z-index: 9999;
-    }
-
-    .close-menu svg {
-        width: 1.4rem;
-        height: 1.4rem;
-    }
-
-    /* Hover effect */
-    .close-menu:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: scale(1.05);
-    }
-
-    header {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    .desktop-nav {
-    display: none;
-    }
-}
-@media (max-width: 640px) {
-/* --- Close button --- */
-    .nav-menu a {
-    font-size: var(--text-subtitle)!important;
-    }
-
-    .close-menu {
-        top: 2.4rem;
-        right: 2.4rem;
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    /* Cuando el menú está activo, mostrar la X */
-    .mobile-nav.active .close-menu {
-        top: 2.4rem;
-        right: 2.4rem;
-    }
-
-    .site-header {
-        padding: var(--space-xs);
-    }
-}
-
-/* --- Desktop Navigation - Estado Explícito --- */
-@media (min-width: 992px) {
-    .hamburger {
-        display: none !important;
-    }
-    
-    .close-menu {
-        display: none !important;
-    }
-    
-    .desktop-nav {
-        display: flex !important;
-        position: static !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        pointer-events: auto !important;
-        height: auto !important;
-        width: auto !important;
-        background-color: transparent !important;
-        padding: 0 !important;
-        flex-direction: row !important;
-    }
-    
-    .desktop-nav li {
-        width: auto !important;
-        text-align: left !important;
-        border-bottom: none !important;
-        margin: 0 0.5rem !important;
-    }
-    
-    .desktop-nav li a {
-        font-size: var(--text-body) !important;
-        font-weight: var(--fw-regular) !important;
-        padding: var(--space-xs) var(--space-sm) !important;
-        width: auto !important;
-    }
-}
-
-
-/* --- Hero --- */
+/* ========= Hero layout ========= */
 .hero-banner {
     position: relative;
     display: flex;
@@ -376,6 +64,7 @@ section:last-of-type {
     min-height: 50vh;
 }
 
+/* Responsive heights */
 @media (max-width: 1200px) {
 .hero-banner {
     min-height: 32vh;
@@ -388,31 +77,8 @@ section:last-of-type {
     }
 }
 
-.banner-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--surface-hero-gradient);
-    z-index: 1;
-}
 
-.banner-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 100%;
-    padding: var(--space-xl) var(--space-lg);
-    color: var(--text-color-on-dark);
-}
-
-.hero-banner .btn--primary {
-    margin-top: var(--space-xs);
-}
-
-
-/* --- Footer --- */
+/* ========= Footer ========= */
 footer {
     text-align: center;
     background-color: var(--surface-footer);
@@ -432,11 +98,9 @@ footer p {
     margin-block-end: 0em;
 }
 
-/* ========================================
-    PAGE SECTIONS — SPECIFIC ADJUSTMENTS
-   ======================================== */
 
-/* Scroll margin for in-page navigation */
+/* ========= Scroll margin ========= */
+
 #overview,
 #downloads,
 #citation,
@@ -444,37 +108,3 @@ footer p {
 #about-the-author {
     scroll-margin-top: var(--space-xxl);
 }
-
-/* Homepage – Hero subtitle */
-.banner-content .subtitle {
-    color: var(--text-color-on-dark);
-}
-
-/* Book versions section */
-#book-versions .container--md {
-    border-top: var(--border-width-separator) solid var(--border-color-subtle);
-    padding-top: var(--space-xxl);
-}
-
-
-/* Efecto de aparición para secciones */    
-.reveal-section {
-    opacity: 0;
-    transform: translateY(20px); /* desplazamiento inicial hacia abajo */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Delay opcional: se controla por JS */
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-
-
-

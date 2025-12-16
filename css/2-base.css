@@ -1,14 +1,17 @@
-/* =============================================================
+/*  ============================================================
     2️⃣ BASE STYLES
     ============================================================ */ 
 /* Default styles: html, body, links, images, base typography */
 
+/* Reset */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
+
+/* Root */
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -25,17 +28,14 @@ body {
     background-color: var(--surface-section);
 }
 
+
+/* Elements */
 img { max-width: 100%; display: block; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 button { font-family: inherit; }
 
 
-/* =============================================================
-    3️⃣ GLOBAL ELEMENTS
-    ============================================================ */
-/* Global typography (h1, h2, h3, p, etc.). 
-Generic elements that are repeated on all pages. */
-
+/* Headings */
 h1, h2, h3 {
 margin: 0;
 font-weight: var(--fw-bold);
@@ -45,6 +45,8 @@ h1 { font-size: var(--text-hero); }
 h2 { font-size: var(--text-headline); }
 h3 { font-size: var(--text-section); }
 
+
+/* Semantic typography helpers */
 .subtitle {
 font-size: var(--text-subtitle);
 margin-block: var(--space-md)!important;;
@@ -65,8 +67,7 @@ margin-block: var(--space-md)!important;;
 }
 
 
-/* Links: a - not buttons or nav */
-/* Usar :where() puede ser más legible */
+/* Links */
 a:where(:not(.btn):not(.logo-link):not(nav a)) {
     color: var(--text-color-link);
     font-weight: var(--fw-semibold);
